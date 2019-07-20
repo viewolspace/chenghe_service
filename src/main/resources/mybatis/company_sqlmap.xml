@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Company">
+	<sql id="selectCommon">
+		SELECT 	a.id,
+				a.NAME,
+				a.short_name,
+				a.logo,
+				a.banner,
+				a.image,
+				a.place,
+				a.place_svg,
+				a.product_num,
+				a.can_apply,
+				a.is_recommend,
+				a.recommend_num,
+				a.c_time,
+				a.m_time,
+				a.seq,
+				a.award,
+				a.top_num,
+				a.see_num,
+				a.praise_num,
+				a.comment_num,
+				a.show_info
+	</sql>
+	<select id="select" parameterType="int" resultType="Company">
+		<include refid="selectCommon"/>
+		,a.content
+		from viewol.company a where id = #{id}
+	</select>
+	<insert id="insert" parameterType="Company"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+		<selectKey keyProperty="id" resultType="int" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO viewol.company
+						(
+						NAME,
+						short_name,
+						logo,
+						banner,
+						image,
+						place,
+						place_svg,
+						product_num,
+						can_apply,
+						is_recommend,
+						recommend_num,
+						content,
+						c_time,
+						m_time,
+						seq,
+						award,
+						top_num,
+						show_info
+						)
+						VALUES
+						(
+						#{name},
+						#{shortName},
+						#{logo},
+						#{banner},
+						#{image},
+						#{place},
+						#{placeSvg},
+						#{productNum},
+						#{canApply},
+						#{isRecommend},
+						#{recommendNum},
+						#{content},
+						#{cTime},
+						#{mTime},
+						#{seq},
+						#{award},
+						#{topNum},
+						#{showInfo}
+						)
+
+	</insert>
+
+	<update id="updateInteractNum" parameterType="map">
+		UPDATE  viewol.company
+		<set>
+			<if test="seeNum != null  and seeNum != 0">
+				see_num = see_num+1,
+			</if>
+
+			<if test="praiseNum != null  and praiseNum != 0">
+				praise_num = praise_num+1,
+			</if>
+
+			<if test="commentNum != null  and commentNum != 0">
+				comment_num = comment_num+1,
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<update id="update" parameterType="Company">
+		UPDATE viewol.company
+				SET
+				name = #{name},
+				short_name = #{shortName},
+				logo = #{logo},
+				banner = #{banner},
+				image = #{image},
+				place = #{place},
+				place_svg = #{placeSvg},
+				product_num = #{productNum},
+				can_apply = #{canApply},
+				is_recommend = #{isRecommend},
+				recommend_num = #{recommendNum},
+				content = #{content},
+				m_time = #{mTime},
+				seq = #{seq},
+				award = #{award},
+				top_num=#{topNum},
+				show_info=#{showInfo}
+
+				WHERE
+				id = #{id}
+	</update>
+
+	<update id="updateShow" parameterType="Company">
+		UPDATE viewol.company
+		SET
+		show_info=#{showInfo}
+		WHERE
+		id = #{id}
+	</update>
+
+	<update id="updateRecommend" parameterType="map">
+		UPDATE  company set  is_recommend = #{isRecommend} , recommend_num = #{recommendNum} where id = #{id}
+	</update>
+
+	<update id="updateTopNum" parameterType="map">
+		UPDATE  company set  top_num = #{topNum}  where id = #{id}
+	</update>
+
+	<update id="updateSeq" parameterType="map">
+		UPDATE  company set  seq = #{seq} where id = #{id}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from company where id = #{id}
+	</delete>
+
+	<select id="queryRecommentCompany" resultType="Company">
+		<include refid="selectCommon"></include>
+		from company a , expo_company b where a.id = b.company_id and b.expo_id=#{expoId} and a.is_recommend=1 order by recommend_num
+	</select>
+
+	<select id="queryTopCompany" resultType="Company">
+		<include refid="selectCommon"></include>
+		from company a , expo_company b where a.id = b.company_id and b.expo_id=#{expoId} and top_num>0 order by top_num
+	</select>
+
+	<!--管理平台使用查询展商-->
+	<sql id="sql_count">
+		select count(*)
+	</sql>
+
+	<sql id="sql_where">
+		FROM company a ,
+		( SELECT  distinct company_id as company_id FROM company_category
+		<where>
+			<if test="categoryId != null and categoryId != '' ">
+				AND category_id = #{categoryId}
+			</if>
+		</where>
+		) b , expo_company c
+		<where>
+
+			a.id=b.company_id
+
+			and a.id = c.company_id
+
+			and c.expo_id = #{expoId}
+
+			<if test="name != null and name != '' ">
+				AND a.name LIKE concat(concat('%',#{name}),'%')
+			</if>
+
+			<if test="award != null and award != 0 ">
+				AND a.award = 1
+			</if>
+
+			<if test="lastSeq != null and lastSeq != 0 ">
+				<![CDATA[
+					AND a.seq < #{lastSeq}
+				]]>
+			</if>
+		</where>
+
+	</sql>
+
+	<sql id="sql_order">
+		order by a.id desc
+	</sql>
+
+	<select id="findByParams_count" parameterType="java.util.HashMap" resultType="int">
+		<include refid="sql_count" />
+		<include refid="sql_where" />
+	</select>
+	<select id="findByParams" parameterType="java.util.HashMap" resultType="Company">
+		<include refid="selectCommon" />
+		<include refid="sql_where" />
+		<include refid="sql_order" />
+	</select>
+
+	<select id="listCompany" parameterType="java.util.HashMap" resultType="Company">
+		<include refid="selectCommon" />
+		<include refid="sql_where" />
+		order by a.seq desc limit 0 , #{num}
+	</select>
+
+
+</mapper>
