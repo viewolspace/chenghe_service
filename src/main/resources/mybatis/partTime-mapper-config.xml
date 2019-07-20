@@ -15,31 +15,8 @@
 
     <typeAliases>
         <typeAlias alias="Category" type="com.chenghe.parttime.pojo.Category"/>
-        <typeAlias alias="Schedule" type="com.chenghe.parttime.pojo.Schedule"/>
-        <typeAlias alias="RecommendSchedule" type="com.chenghe.parttime.pojo.RecommendSchedule"/>
-        <typeAlias alias="Category" type="com.chenghe.parttime.pojo.Category"/>
         <typeAlias alias="CategorySeq" type="com.chenghe.parttime.pojo.CategorySeq"/>
-        <typeAlias alias="CompanyCategory" type="com.chenghe.parttime.pojo.CompanyCategory"/>
         <typeAlias alias="Company" type="com.chenghe.parttime.pojo.Company"/>
-        <typeAlias alias="Product" type="com.chenghe.parttime.pojo.Product"/>
-        <typeAlias alias="Recommend" type="com.chenghe.parttime.pojo.Recommend"/>
-        <typeAlias alias="ScheduleUser" type="com.chenghe.parttime.pojo.ScheduleUser"/>
-        <typeAlias alias="FUserBind" type="com.chenghe.parttime.pojo.FUserBind"/>
-        <typeAlias alias="FUser" type="com.chenghe.parttime.pojo.FUser"/>
-        <typeAlias alias="BUser" type="com.chenghe.parttime.pojo.BUser"/>
-        <typeAlias alias="UserCard" type="com.chenghe.parttime.pojo.UserCard"/>
-        <typeAlias alias="UserCardVO" type="com.chenghe.parttime.pojo.UserCardVO"/>
-        <typeAlias alias="ScheduleVO" type="com.chenghe.parttime.pojo.ScheduleVO"/>
-        <typeAlias alias="UserCollection" type="com.chenghe.parttime.pojo.UserCollection"/>
-        <typeAlias alias="UserDownload" type="com.chenghe.parttime.pojo.UserDownload"/>
-        <typeAlias alias="UserBrowse" type="com.chenghe.parttime.pojo.UserBrowse"/>
-        <typeAlias alias="UserAnswer" type="com.chenghe.parttime.pojo.UserAnswer"/>
-        <typeAlias alias="WxToken" type="com.chenghe.parttime.pojo.WxToken"/>
-        <typeAlias alias="UserSession" type="com.chenghe.parttime.pojo.UserSession"/>
-        <typeAlias alias="Info" type="com.chenghe.parttime.pojo.Info"/>
-        <typeAlias alias="ExpoCompany" type="com.chenghe.parttime.pojo.ExpoCompany"/>
-        <typeAlias alias="ExpoProduct" type="com.chenghe.parttime.pojo.ExpoProduct"/>
-        <typeAlias alias="UserInteract" type="com.chenghe.parttime.pojo.UserInteract"/>
     </typeAliases>
 
     <plugins>
@@ -48,30 +25,9 @@
     </plugins>
 
     <mappers>
-        <!--<mapper resource="mybatis/category_sqlmap.xml" />-->
-        <mapper resource="mybatis/schedule_sqlmap.xml"/>
-        <mapper resource="mybatis/recommendSchedule_sqlmap.xml"/>
         <mapper resource="mybatis/categorySeq_sqlmap.xml"/>
         <mapper resource="mybatis/category_sqlmap.xml"/>
-        <mapper resource="mybatis/companyCategory_sqlmap.xml"/>
         <mapper resource="mybatis/company_sqlmap.xml"/>
-        <mapper resource="mybatis/product_sqlmap.xml"/>
-        <mapper resource="mybatis/recommend_sqlmap.xml"/>
-        <mapper resource="mybatis/schedule_user_sqlmap.xml"/>
-        <mapper resource="mybatis/f_user_bind_sqlmap.xml"/>
-        <mapper resource="mybatis/f_user_sqlmap.xml"/>
-        <mapper resource="mybatis/b_user_sqlmap.xml"/>
-        <mapper resource="mybatis/user_card_sqlmap.xml"/>
-        <mapper resource="mybatis/user_collection_sqlmap.xml"/>
-        <mapper resource="mybatis/user_download_sqlmap.xml"/>
-        <mapper resource="mybatis/user_browse_sqlmap.xml"/>
-        <mapper resource="mybatis/user_answer_sqlmap.xml"/>
-        <mapper resource="mybatis/wx_token_sqlmap.xml"/>
-        <mapper resource="mybatis/user_session_sqlmap.xml"/>
-        <mapper resource="mybatis/info_sqlmap.xml"/>
-        <mapper resource="mybatis/expo_company_sqlmap.xml"/>
-        <mapper resource="mybatis/expo_product_sqlmap.xml"/>
-        <mapper resource="mybatis/user_interact_sqlmap.xml"/>
     </mappers>
 
 </configuration>

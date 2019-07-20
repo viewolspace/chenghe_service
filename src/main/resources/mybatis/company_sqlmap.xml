@@ -44,12 +44,6 @@
 
 	</insert>
 
-
-	<update id="update" parameterType="Company">
-				WHERE
-				id = #{id}
-	</update>
-
 	<update id="update" parameterType="Company">
 
 		UPDATE part_time.company

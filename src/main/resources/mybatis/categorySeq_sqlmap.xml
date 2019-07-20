@@ -3,7 +3,7 @@
 <mapper namespace="CategorySeq">
 	<insert id="insert" parameterType="CategorySeq">
 
-		INSERT INTO viewol.category_seq
+		INSERT INTO part_time.category_seq
 			(parent_id,
 			seq,
 			c_time,
@@ -21,11 +21,11 @@
 		select parent_id,
 			seq,
 			c_time,
-			m_time from viewol.category_seq where parent_id=#{parentId}
+			m_time from part_time.category_seq where parent_id=#{parentId}
 	</select>
 
 	<update id="updateSeq" parameterType="string">
-		update viewol.category_seq set seq=seq+1,m_time=#{mTime} where parent_id=#{parentId}
+		update part_time.category_seq set seq=seq+1,m_time=#{mTime} where parent_id=#{parentId}
 	</update>
 
 </mapper>

@@ -7,11 +7,11 @@ import org.junit.Test;
 /**
  * Created by lenovo on 2018/6/28.
  */
-public class CategoryServiceImplTest extends BaseTestClass{
+public class CategoryServiceImplTest extends BaseTestClass {
 
-    private ICategoryService service = (ICategoryService)getInstance("categoryService");
+    private ICategoryService service = (ICategoryService) getInstance("categoryService");
 
-    private Category beanCategory(){
+    private Category beanCategory() {
         Category category = new Category();
         category.setId("000100010001");
         category.setParentId("000100010001");
@@ -23,35 +23,35 @@ public class CategoryServiceImplTest extends BaseTestClass{
     }
 
     @Test
-    public void addCategory(){
+    public void addCategory() {
         System.out.println(service.addCategory(beanCategory()));
     }
 
     @Test
-    public void getCategory(){
+    public void getCategory() {
         System.out.println(service.getCategory("0001"));
     }
 
     @Test
-    public void updateCategory(){
+    public void updateCategory() {
         Category category = beanCategory();
         category.setName("录音设备111");
         service.updateCategory(category);
     }
 
     @Test
-    public void delCategory(){
+    public void delCategory() {
         service.delCategory("0001");
     }
 
 
     @Test
-    public void listByParent(){
+    public void listByParent() {
         System.out.println(service.listByParent("0001"));
     }
 
     @Test
-    public void listAll(){
+    public void listAll() {
         System.out.println(service.listAll("0001"));
     }
 }
