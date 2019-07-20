@@ -1,30 +1,21 @@
 package com.chenghe.parttime.query;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by lenovo on 2018/6/29.
  */
 public class CompanyQuery {
     private String name;
 
-    private String categoryId;
-
-    private int expoId = 1;
-
-    private long lastSeq; //客户端查询使用
 
     private int pageIndex = 1;
 
     private int pageSize = 20;
 
-    private int award = 0;
 
-    public long getLastSeq() {
-        return lastSeq;
-    }
 
-    public void setLastSeq(long lastSeq) {
-        this.lastSeq = lastSeq;
-    }
 
     public String getName() {
         return name;
@@ -34,12 +25,13 @@ public class CompanyQuery {
         this.name = name;
     }
 
-    public String getCategoryId() {
-        return categoryId;
-    }
 
-    public void setCategoryId(String categoryId) {
-        this.categoryId = categoryId;
+    public Map getMap(){
+        Map<String,Object> map = new HashMap<>();
+        if(name!=null){
+            map.put("name",name);
+        }
+        return map;
     }
 
     public int getPageIndex() {
@@ -56,21 +48,5 @@ public class CompanyQuery {
 
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
-    }
-
-    public int getExpoId() {
-        return expoId;
-    }
-
-    public void setExpoId(int expoId) {
-        this.expoId = expoId;
-    }
-
-    public int getAward() {
-        return award;
-    }
-
-    public void setAward(int award) {
-        this.award = award;
     }
 }

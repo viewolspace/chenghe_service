@@ -1,5 +1,9 @@
 package com.chenghe.parttime.service;
 
+import com.chenghe.parttime.pojo.Company;
+import com.chenghe.parttime.query.CompanyQuery;
+import com.youguu.core.util.PageHolder;
+
 /**
  * describe:
  *
@@ -9,4 +13,13 @@ package com.chenghe.parttime.service;
  * @review:
  */
 public interface ICompanyService {
+
+    int addCompany(Company company);
+
+    int updateCompany(Company company);
+
+    Company getCompany(int id);
+
+    PageHolder<Company> queryCompany(CompanyQuery query);
+
 }

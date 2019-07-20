@@ -1,5 +1,9 @@
 package com.chenghe.parttime.dao;
 
+import com.chenghe.parttime.pojo.Company;
+import com.chenghe.parttime.query.CompanyQuery;
+import com.youguu.core.util.PageHolder;
+
 /**
  * describe:
  *
@@ -9,4 +13,12 @@ package com.chenghe.parttime.dao;
  * @review:
  */
 public interface ICompanyDAO {
+
+    int addCompany(Company company);
+
+    int updateCompany(Company company);
+
+    Company getCompany(int id);
+
+    PageHolder<Company> queryCompany(CompanyQuery query);
 }
