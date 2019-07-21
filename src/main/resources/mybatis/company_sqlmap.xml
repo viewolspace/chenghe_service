@@ -33,7 +33,7 @@
 						star
 						)
 						VALUES
-						(,
+						(
 						#{name},
 						#{logo},
 						#{qq},
