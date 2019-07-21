@@ -1,10 +1,10 @@
 package com.chenghe.parttime.dao;
 
-import com.chenghe.parttime.pojo.Ad;
 import com.chenghe.parttime.pojo.PartTime;
-import com.chenghe.parttime.query.AdQuery;
 import com.chenghe.parttime.query.PartTimeQuery;
 import com.youguu.core.util.PageHolder;
+
+import java.util.List;
 
 /**
  * describe:
@@ -18,9 +18,18 @@ public interface IPartTimeDAO {
 
     int updatePartTime(PartTime partTime);
 
+    int updateRecommnet(int id,int recommnet);
+
     PartTime getPartTime(int id);
 
     PageHolder<PartTime> queryPartTime(PartTimeQuery query);
 
     int delete(int id);
+
+    List<PartTime> listRecomment(int recommnet,int pageIndex,int pageSize);
+
+
+    List<PartTime> listAll(String title,int pageIndex,int pageSize);
+
+
 }

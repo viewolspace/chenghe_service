@@ -8,6 +8,7 @@ import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * describe:
@@ -44,5 +45,20 @@ public class PartTimeServiceImpl implements IPartTimeService {
     @Override
     public int delete(int id) {
         return partTimeDAO.delete(id);
+    }
+
+    @Override
+    public int updateRecommnet(int id, int recommnet) {
+        return partTimeDAO.updateRecommnet(id, recommnet);
+    }
+
+    @Override
+    public List<PartTime> listRecomment(int recommnet, int pageIndex, int pageSize) {
+        return partTimeDAO.listRecomment(recommnet, pageIndex, pageSize);
+    }
+
+    @Override
+    public List<PartTime> listAll(String title, int pageIndex, int pageSize) {
+        return partTimeDAO.listAll(title, pageIndex, pageSize);
     }
 }

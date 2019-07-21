@@ -67,6 +67,14 @@
         <include refid="sql_where"/>
         <include refid="sql_order"/>
     </select>
+    
+    
+    <select id="listAd" parameterType="map" resultType="Ad">
+        <include refid="selectCommon"></include>
+        where category_id = #{categoryId} and status = 0
+        order by num
+    </select>
+    
 
     <delete id="delete" parameterType="int">
 		delete from part_time.ad WHERE id = #{id} ;

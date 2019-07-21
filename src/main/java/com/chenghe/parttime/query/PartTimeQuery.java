@@ -9,6 +9,8 @@ import java.util.Map;
 public class PartTimeQuery {
     private String title;
 
+    private Integer recommnent;
+
     private int pageIndex = 1;
 
     private int pageSize = 20;
@@ -26,6 +28,11 @@ public class PartTimeQuery {
         if (title != null) {
             map.put("title", title);
         }
+
+        if (recommnent != null) {
+            map.put("recommnent", recommnent);
+        }
+
         return map;
     }
 

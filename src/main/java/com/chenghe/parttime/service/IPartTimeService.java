@@ -4,6 +4,8 @@ import com.chenghe.parttime.pojo.PartTime;
 import com.chenghe.parttime.query.PartTimeQuery;
 import com.youguu.core.util.PageHolder;
 
+import java.util.List;
+
 /**
  * describe:
  *
@@ -21,4 +23,11 @@ public interface IPartTimeService {
     PageHolder<PartTime> queryPartTime(PartTimeQuery query);
 
     int delete(int id);
+
+    int updateRecommnet(int id,int recommnet);
+
+    List<PartTime> listRecomment(int recommnet,int pageIndex,int pageSize);
+
+
+    List<PartTime> listAll(String title,int pageIndex,int pageSize);
 }

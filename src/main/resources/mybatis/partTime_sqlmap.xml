@@ -35,6 +35,12 @@
     </select>
 
 
+    <update id="updateRecommnet" parameterType="map">
+        update part_time set recomment=#{recomment}
+        where id = #{id}
+    </update>
+
+
     <delete id="delete">
         DELETE FROM part_time.part_time where id = #{id}
     </delete>
@@ -84,6 +90,41 @@
 			id = #{id}
 	</update>
 
+
+
+    <select id="listRecomment" parameterType="map" resultType="PartTime">
+
+        <include refid="selectCommon" />
+
+        from part_time.part_time where recommend = #{recommend} and status = 0 and now() BETWEEN s_time and e_time
+
+        ORDER by top_num desc , id  desc
+
+    </select>
+
+
+    <select id="listAll" parameterType="map" resultType="PartTime">
+
+        <include refid="selectCommon" />
+
+        from part_time.part_time
+
+        <where>
+
+            status = 0 and now() BETWEEN s_time and e_time
+
+
+            <if test="title != null and title != '' ">
+                AND a.title LIKE concat(concat('%',#{title}),'%')
+            </if>
+
+        </where>
+
+        ORDER by top_num desc , id  desc
+
+    </select>
+
+
     <sql id="sql_count">
 		select count(*)
 	</sql>
@@ -94,6 +135,11 @@
             <if test="title != null and title != '' ">
                 AND a.title LIKE concat(concat('%',#{title}),'%')
             </if>
+            <if test="recommend != null  ">
+                AND recommend = #{recommend}
+            </if>
+
+
         </where>
     </sql>
 

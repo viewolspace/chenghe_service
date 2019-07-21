@@ -7,6 +7,10 @@ import com.chenghe.parttime.query.AdQuery;
 import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * describe:
  *
@@ -40,5 +44,11 @@ public class AdDAOImpl extends BaseDAO<Ad> implements IAdDAO {
     @Override
     public int delete(int id) {
         return super.delete(id);
+    }
+
+    @Override
+    public List<Ad> listAd(String categoryId) {
+        Map<String,Object> map = new HashMap<>();
+        return super.findBy("listAd",map);
     }
 }

@@ -7,6 +7,10 @@ import com.chenghe.parttime.query.PartTimeQuery;
 import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * describe:
  *
@@ -40,5 +44,27 @@ public class PartTimeDAOImpl extends BaseDAO<PartTime> implements IPartTimeDAO {
     @Override
     public int delete(int id) {
         return super.delete(id);
+    }
+
+    @Override
+    public int updateRecommnet(int id, int recommnet) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("recommnet",recommnet);
+        map.put("id",id);
+        return super.updateBy("updateRecommnet",map);
+    }
+
+    @Override
+    public List<PartTime> listRecomment(int recommnet, int pageIndex, int pageSize) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("recommnet",recommnet);
+        return super.pagedBy("listRecomment",map,pageIndex,pageSize);
+    }
+
+    @Override
+    public List<PartTime> listAll(String title, int pageIndex, int pageSize) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("title",title);
+        return super.pagedBy("listAll",map,pageIndex,pageSize);
     }
 }
