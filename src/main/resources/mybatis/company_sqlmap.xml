@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Company">
-	<sql id="selectCommon">
+    <sql id="selectCommon">
 		select
 		id,
 		NAME,
@@ -12,41 +12,41 @@
 		des,
 		star
 	</sql>
-	<select id="select" parameterType="int" resultType="Company">
-		<include refid="selectCommon"/>
-		from part_time.company a where id = #{id}
-	</select>
 
-	<insert id="insert" parameterType="Company"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-		<selectKey keyProperty="id" resultType="int" order="AFTER">
-			SELECT LAST_INSERT_ID()
-		</selectKey>
+    <select id="select" parameterType="int" resultType="Company">
+        <include refid="selectCommon"/>
+        from part_time.company a where id = #{id}
+    </select>
 
-		INSERT INTO part_time.company
-						(
-						name,
-						logo,
-						qq,
-						wx,
-						phone,
-						des,
-						star
-						)
-						VALUES
-						(
-						#{name},
-						#{logo},
-						#{qq},
-						#{wx},
-						#{phone},
-						#{des},
-						#{star}
-						)
+    <insert id="insert" parameterType="Company" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
 
-	</insert>
+        INSERT INTO part_time.company
+        (
+        name,
+        logo,
+        qq,
+        wx,
+        phone,
+        des,
+        star
+        )
+        VALUES
+        (
+        #{name},
+        #{logo},
+        #{qq},
+        #{wx},
+        #{phone},
+        #{des},
+        #{star}
+        )
 
-	<update id="update" parameterType="Company">
+    </insert>
 
+    <update id="update" parameterType="Company">
 		UPDATE part_time.company
 			SET
 			name = #{name} ,
@@ -62,37 +62,35 @@
 
 	</update>
 
-	<!--管理平台使用查询展商-->
-	<sql id="sql_count">
+    <!--管理平台使用查询展商-->
+    <sql id="sql_count">
 		select count(*)
 	</sql>
 
-	<sql id="sql_where">
-		FROM company a
-		<where>
+    <sql id="sql_where">
+        FROM company a
+        <where>
+            <if test="name != null and name != '' ">
+                AND a.name LIKE concat(concat('%',#{name}),'%')
+            </if>
+        </where>
+    </sql>
 
-			<if test="name != null and name != '' ">
-				AND a.name LIKE concat(concat('%',#{name}),'%')
-			</if>
-
-		</where>
-
-	</sql>
-
-	<sql id="sql_order">
+    <sql id="sql_order">
 		order by a.id desc
 	</sql>
 
-	<select id="findByParams_count" parameterType="java.util.HashMap" resultType="int">
-		<include refid="sql_count" />
-		<include refid="sql_where" />
-	</select>
-	<select id="findByParams" parameterType="java.util.HashMap" resultType="Company">
-		<include refid="selectCommon" />
-		<include refid="sql_where" />
-		<include refid="sql_order" />
-	</select>
+    <select id="findByParams_count" parameterType="java.util.HashMap" resultType="int">
+        <include refid="sql_count"/>
+        <include refid="sql_where"/>
+    </select>
+    <select id="findByParams" parameterType="java.util.HashMap" resultType="Company">
+        <include refid="selectCommon"/>
+        <include refid="sql_where"/>
+        <include refid="sql_order"/>
+    </select>
 
-
-
+    <delete id="delete" parameterType="int">
+		delete from part_time.company WHERE id = #{id} ;
+	</delete>
 </mapper>

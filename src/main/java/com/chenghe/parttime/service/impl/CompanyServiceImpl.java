@@ -43,4 +43,9 @@ public class CompanyServiceImpl implements ICompanyService {
     public PageHolder<Company> queryCompany(CompanyQuery query) {
         return companyDAO.queryCompany(query);
     }
+
+    @Override
+    public int delete(int id) {
+        return companyDAO.delete(id);
+    }
 }

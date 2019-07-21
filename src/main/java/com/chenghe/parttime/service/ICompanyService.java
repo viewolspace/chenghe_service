@@ -22,4 +22,5 @@ public interface ICompanyService {
 
     PageHolder<Company> queryCompany(CompanyQuery query);
 
+    int delete(int id);
 }

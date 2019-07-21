@@ -36,4 +36,9 @@ public class CompanyDAOImpl extends BaseDAO<Company> implements ICompanyDAO {
     public PageHolder<Company> queryCompany(CompanyQuery query) {
         return super.pagedQuery("findByParams",query.getMap(),query.getPageIndex(),query.getPageSize());
     }
+
+    @Override
+    public int delete(int id) {
+        return super.delete(id);
+    }
 }

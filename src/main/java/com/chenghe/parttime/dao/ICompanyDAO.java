@@ -21,4 +21,6 @@ public interface ICompanyDAO {
     Company getCompany(int id);
 
     PageHolder<Company> queryCompany(CompanyQuery query);
+
+    int delete(int id);
 }
