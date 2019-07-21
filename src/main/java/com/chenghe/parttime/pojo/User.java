@@ -10,7 +10,7 @@ import java.util.Date;
  * @review:
  */
 public class User {
-    private Date userId;
+    private Integer userId;
     private String phone;
     private String pwd;
     private String nickName;
@@ -19,11 +19,11 @@ public class User {
     private Date cTime;
     private Date mTime;
 
-    public Date getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Date userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 /**
  * describe:
  *
- * @author: shi_lei@suixingpay.com
  * @date: 2019/07/20 17:16:17:16
  * @version: V1.0
  * @review:

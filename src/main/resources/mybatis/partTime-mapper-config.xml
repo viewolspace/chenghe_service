@@ -17,6 +17,13 @@
         <typeAlias alias="Category" type="com.chenghe.parttime.pojo.Category"/>
         <typeAlias alias="CategorySeq" type="com.chenghe.parttime.pojo.CategorySeq"/>
         <typeAlias alias="Company" type="com.chenghe.parttime.pojo.Company"/>
+        <typeAlias alias="Ad" type="com.chenghe.parttime.pojo.Ad"/>
+        <typeAlias alias="PartTime" type="com.chenghe.parttime.pojo.PartTime"/>
+        <typeAlias alias="PartTimeStat" type="com.chenghe.parttime.pojo.PartTimeStat"/>
+        <typeAlias alias="User" type="com.chenghe.parttime.pojo.User"/>
+        <typeAlias alias="UserJoin" type="com.chenghe.parttime.pojo.UserJoin"/>
+        <typeAlias alias="UserStat" type="com.chenghe.parttime.pojo.UserStat"/>
+
     </typeAliases>
 
     <plugins>
@@ -28,6 +35,12 @@
         <mapper resource="mybatis/categorySeq_sqlmap.xml"/>
         <mapper resource="mybatis/category_sqlmap.xml"/>
         <mapper resource="mybatis/company_sqlmap.xml"/>
+        <mapper resource="mybatis/ad_sqlmap.xml"/>
+        <mapper resource="mybatis/partTime_sqlmap.xml"/>
+        <mapper resource="mybatis/partTimeStat_sqlmap.xml"/>
+        <mapper resource="mybatis/user_sqlmap.xml"/>
+        <mapper resource="mybatis/user_join_sqlmap.xml"/>
+        <mapper resource="mybatis/userStat_sqlmap.xml"/>
     </mappers>
 
 </configuration>

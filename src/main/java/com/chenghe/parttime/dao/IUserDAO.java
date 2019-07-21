@@ -1,5 +1,9 @@
 package com.chenghe.parttime.dao;
 
+import com.chenghe.parttime.pojo.User;
+import com.chenghe.parttime.query.UserQuery;
+import com.youguu.core.util.PageHolder;
+
 /**
  * describe:
  *
@@ -9,4 +13,15 @@ package com.chenghe.parttime.dao;
  * @review:
  */
 public interface IUserDAO {
+    int addUser(User user);
+
+    int updateUser(User user);
+
+    int updatePwd(Integer userId, String oldPwd, String newPwd);
+
+    User getUser(int id);
+
+    PageHolder<User> queryUser(UserQuery query);
+
+    int delete(int id);
 }

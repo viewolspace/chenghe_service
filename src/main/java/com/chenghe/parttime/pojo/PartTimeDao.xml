@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chenghe.parttime.pojo.PartTimeDao">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.chenghe.parttime.pojo.PartTime">
+        <result column="id" property="id"/>
+        <result column="company_id" property="companyId"/>
+        <result column="recommend" property="recommend"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="category_name" property="categoryName"/>
+        <result column="top_num" property="topNum"/>
+        <result column="title" property="title"/>
+        <result column="salary" property="salary"/>
+        <result column="cycle" property="cycle"/>
+        <result column="lable" property="lable"/>
+        <result column="contact_type" property="contactType"/>
+        <result column="contact" property="contact"/>
+        <result column="content" property="content"/>
+        <result column="num" property="num"/>
+        <result column="work_time" property="workTime"/>
+        <result column="work_address" property="workAddress"/>
+        <result column="status" property="status"/>
+        <result column="s_time" property="sTime"/>
+        <result column="e_time" property="eTime"/>
+        <result column="browse_num" property="browseNum"/>
+        <result column="copy_num" property="copyNum"/>
+        <result column="join_num" property="joinNum"/>
+        <result column="c_time" property="cTime"/>
+        <result column="m_time" property="mTime"/>
+    </resultMap>
+
+<!--auto generated Code-->
+
+</mapper>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PartTime">
+
+    <sql id="selectCommon">
+        id,
+        company_id,
+        recommend,
+        category_id,
+        category_name,
+        top_num,
+        title,
+        salary,
+        cycle,
+        lable,
+        contact_type,
+        contact,
+        content,
+        num,
+        work_time,
+        work_address,
+        status,
+        s_time,
+        e_time,
+        browse_num,
+        copy_num,
+        join_num,
+        c_time,
+        m_time
+    </sql>
+
+    <select id="select" parameterType="int" resultType="PartTime">
+        <include refid="selectCommon"/>
+        from part_time.part_time a where id = #{id}
+    </select>
+
+
+    <delete id="delete">
+        DELETE FROM part_time.part_time where id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="PartTime" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+
+        INSERT INTO part_time.part_time
+        (
+            company_id,recommend,category_id,category_name,top_num,title,salary,cycle,lable,contact_type,contact,content,num,work_time,work_address,status,s_time,e_time,browse_num,copy_num,join_num,c_time
+        )
+        VALUES
+        (
+            #{companyId},#{recommend},#{categoryId},#{categoryName},#{topNum},#{title},#{salary},#{cycle},#{lable},#{contactType},#{contact},#{content},#{num},#{workTime},#{workAddress},#{status},#{sTime},#{eTime},#{browseNum},#{copyNum},#{joinNum},#{cTime}
+        )
+
+    </insert>
+
+    <update id="update" parameterType="PartTime">
+		UPDATE part_time.part_time
+			SET
+            company_id=#{companyId},
+            recommend=#{recommend},
+            category_id=#{categoryId},
+            category_name=#{categoryName},
+            top_num=#{topNum},
+            title=#{title},
+            salary=#{salary},
+            cycle=#{cycle},
+            lable=#{lable},
+            contact_type=#{contactType},
+            contact=#{contact},
+            content=#{content},
+            num=#{num},
+            work_time=#{workTime},
+            work_address=#{workAddress},
+            status=#{status},
+            s_time=#{sTime},
+            e_time=#{eTime},
+            browse_num=#{browseNum},
+            copy_num=#{copyNum},
+            join_num=#{joinNum},
+            m_time=#{mTime}
+			WHERE
+			id = #{id}
+	</update>
+
+    <sql id="sql_count">
+		select count(*)
+	</sql>
+
+    <sql id="sql_where">
+        FROM part_time.part_time a
+        <where>
+            <if test="title != null and title != '' ">
+                AND a.title LIKE concat(concat('%',#{title}),'%')
+            </if>
+        </where>
+    </sql>
+
+    <sql id="sql_order">
+		order by a.id desc
+	</sql>
+
+    <select id="findByParams_count" parameterType="java.util.HashMap" resultType="int">
+        <include refid="sql_count"/>
+        <include refid="sql_where"/>
+    </select>
+    <select id="findByParams" parameterType="java.util.HashMap" resultType="PartTime">
+        <include refid="selectCommon"/>
+        <include refid="sql_where"/>
+        <include refid="sql_order"/>
+    </select>
+</mapper>

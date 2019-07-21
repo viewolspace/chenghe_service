@@ -1,14 +1,43 @@
 package com.chenghe.parttime.dao.impl;
 
+import com.chenghe.parttime.dao.BaseDAO;
 import com.chenghe.parttime.dao.IPartTimeStatDAO;
+import com.chenghe.parttime.pojo.PartTimeStat;
+import com.chenghe.parttime.query.PartTimeStatQuery;
+import com.youguu.core.util.PageHolder;
+import org.springframework.stereotype.Repository;
+
+import java.util.HashMap;
 
 /**
  * describe:
  *
- * @author: shi_lei@suixingpay.com
  * @date: 2019/07/20 17:18:17:18
  * @version: V1.0
  * @review:
  */
-public class PartTimeStatDAOImpl implements IPartTimeStatDAO {
+@Repository("partTimeStatDAO")
+public class PartTimeStatDAOImpl extends BaseDAO<PartTimeStat> implements IPartTimeStatDAO {
+    @Override
+    public int addPartTimeStat(PartTimeStat partTimeStat) {
+        return super.insert(partTimeStat);
+    }
+
+    @Override
+    public int updatePartTimeStat(PartTimeStat partTimeStat) {
+        return super.update(partTimeStat);
+    }
+
+    @Override
+    public PartTimeStat findByPartTimeIdAndStatDate(String partTimeId, String statDate) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("partTimeId", partTimeId);
+        hashMap.put("statDate", statDate);
+        return super.findUniqueBy("findByPartTimeIdAndStatDate", hashMap);
+    }
+
+    @Override
+    public PageHolder<PartTimeStat> queryPartTimeStat(PartTimeStatQuery query) {
+        return super.pagedQuery("findByParams", query.getMap(), query.getPageIndex(), query.getPageSize());
+    }
 }
