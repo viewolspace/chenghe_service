@@ -46,7 +46,7 @@ public class CategoryServiceImpl implements ICategoryService {
 
     }
 
-    @Transactional("viewolTX")
+    @Transactional("partTimeTX")
     @Override
     public String addCategory(Category category) {
         String parentId = category.getParentId();
