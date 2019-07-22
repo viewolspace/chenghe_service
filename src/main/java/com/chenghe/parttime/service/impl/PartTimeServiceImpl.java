@@ -61,4 +61,9 @@ public class PartTimeServiceImpl implements IPartTimeService {
     public List<PartTime> listAll(String title, int pageIndex, int pageSize) {
         return partTimeDAO.listAll(title, pageIndex, pageSize);
     }
+
+    @Override
+    public List<PartTime> listByCategory(String categoryId, int pageIndex, int pageSize) {
+        return partTimeDAO.listByCategory(categoryId, pageIndex, pageSize);
+    }
 }

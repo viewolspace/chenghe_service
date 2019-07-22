@@ -125,6 +125,17 @@
     </select>
 
 
+    <select id="listByCategory" parameterType="map" resultType="PartTime">
+
+        <include refid="selectCommon" />
+
+        from part_time.part_time where  category_id=#{categoryId} and status = 0 and now() BETWEEN s_time and e_time
+
+        ORDER by top_num desc , id  desc
+
+    </select>
+
+
     <sql id="sql_count">
 		select count(*)
 	</sql>

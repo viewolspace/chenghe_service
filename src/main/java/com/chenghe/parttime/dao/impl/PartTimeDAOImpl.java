@@ -67,4 +67,11 @@ public class PartTimeDAOImpl extends BaseDAO<PartTime> implements IPartTimeDAO {
         map.put("title",title);
         return super.pagedBy("listAll",map,pageIndex,pageSize);
     }
+
+    @Override
+    public List<PartTime> listByCategory(String categoryId, int pageIndex, int pageSize) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("categoryId",categoryId);
+        return super.pagedBy("listByCategory",map,pageIndex,pageSize);
+    }
 }

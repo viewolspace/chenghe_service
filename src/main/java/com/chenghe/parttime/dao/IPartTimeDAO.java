@@ -32,4 +32,7 @@ public interface IPartTimeDAO {
     List<PartTime> listAll(String title,int pageIndex,int pageSize);
 
 
+    List<PartTime> listByCategory(String categoryId,int pageIndex,int pageSize);
+
+
 }
