@@ -4,6 +4,8 @@ import com.chenghe.parttime.pojo.Ad;
 import com.chenghe.parttime.query.AdQuery;
 import com.youguu.core.util.PageHolder;
 
+import java.util.List;
+
 /**
  * describe:
  *
@@ -21,4 +23,6 @@ public interface IAdService {
     PageHolder<Ad> queryAd(AdQuery query);
 
     int delete(int id);
+
+    List<Ad> listAd(String categoryId);
 }

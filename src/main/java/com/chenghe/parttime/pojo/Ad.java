@@ -18,6 +18,7 @@ public class Ad {
     private int status;         //状态 0 有效  -1 无效
     private Date cTime;         //创建时间
     private Date mTime;         //修改时间
+    private String title;
 
     public int getId() {
         return id;
@@ -81,5 +82,13 @@ public class Ad {
 
     public void setmTime(Date mTime) {
         this.mTime = mTime;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

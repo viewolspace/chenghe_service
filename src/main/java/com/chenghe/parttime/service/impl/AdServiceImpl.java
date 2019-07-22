@@ -8,6 +8,7 @@ import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * describe:
@@ -45,5 +46,10 @@ public class AdServiceImpl implements IAdService {
     @Override
     public int delete(int id) {
         return adDAO.delete(id);
+    }
+
+    @Override
+    public List<Ad> listAd(String categoryId) {
+        return adDAO.listAd(categoryId);
     }
 }
