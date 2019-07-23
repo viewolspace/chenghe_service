@@ -16,7 +16,6 @@ public class CategoryServiceImplTest extends BaseTestClass {
         category.setId("000100010001");
         category.setParentId("000100010001");
         category.setType(1);
-        category.setLogo("111");
         category.setName("摄像设备");
         category.setNum(1);
         return category;

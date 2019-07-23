@@ -19,7 +19,6 @@ public class CategoryDAOImplTest extends BaseTestClass {
         category.setId("000100010002");
         category.setParentId("00010001");
         category.setType(1);
-        category.setLogo("111");
         category.setName("摄像设备1");
         category.setNum(1);
         return category;

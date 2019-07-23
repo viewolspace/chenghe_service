@@ -14,8 +14,7 @@ public class Category {
     private String parentId;
     private Integer type; //1 展商分类  2 产品分类
     private Integer num;
-    private String  logo;
-    private String  name;
+    private String name;
     private Date cTime;
 
     public String getId() {
@@ -40,14 +39,6 @@ public class Category {
 
     public void setType(Integer type) {
         this.type = type;
-    }
-
-    public String getLogo() {
-        return logo;
-    }
-
-    public void setLogo(String logo) {
-        this.logo = logo;
     }
 
     public String getName() {
@@ -81,7 +72,6 @@ public class Category {
                 ", parentId='" + parentId + '\'' +
                 ", type=" + type +
                 ", num=" + num +
-                ", logo='" + logo + '\'' +
                 ", name='" + name + '\'' +
                 ", cTime=" + cTime +
                 '}';
