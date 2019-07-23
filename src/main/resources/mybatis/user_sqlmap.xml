@@ -10,6 +10,11 @@
         from part_time.user a where user_id = #{userId}
     </select>
 
+    <select id="selectByPhone" parameterType="string" resultType="User">
+        <include refid="selectCommon"/>
+        from part_time.user a where phone = #{phone}
+    </select>
+
     <insert id="insert" parameterType="User" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         <selectKey keyProperty="id" resultType="int" order="AFTER">
             SELECT LAST_INSERT_ID()

@@ -24,4 +24,7 @@ public interface IUserDAO {
     PageHolder<User> queryUser(UserQuery query);
 
     int delete(int id);
+
+
+    User getUser(String phone);
 }

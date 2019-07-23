@@ -52,4 +52,9 @@ public class UserDAOImpl extends BaseDAO<User> implements IUserDAO {
     public int delete(int id) {
         return super.delete(id);
     }
+
+    @Override
+    public User getUser(String phone) {
+        return super.findUniqueBy("selectByPhone",phone);
+    }
 }

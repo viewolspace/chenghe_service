@@ -20,6 +20,8 @@ public interface IUserService {
 
     User getUser(int id);
 
+    User getUser(String phone);
+
     PageHolder<User> queryUser(UserQuery query);
 
     int delete(int id);

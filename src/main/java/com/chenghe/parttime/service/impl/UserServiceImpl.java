@@ -50,4 +50,9 @@ public class UserServiceImpl implements IUserService {
     public int delete(int id) {
         return userDAO.delete(id);
     }
+
+    @Override
+    public User getUser(String phone) {
+        return userDAO.getUser(phone);
+    }
 }
