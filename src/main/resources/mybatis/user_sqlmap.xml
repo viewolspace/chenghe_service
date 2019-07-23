@@ -15,18 +15,18 @@
         from part_time.user a where phone = #{phone}
     </select>
 
-    <insert id="insert" parameterType="User" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-        <selectKey keyProperty="id" resultType="int" order="AFTER">
+    <insert id="insert" parameterType="User" useGeneratedKeys="true" keyColumn="user_id" keyProperty="userId">
+        <selectKey keyProperty="userId" resultType="int" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
 
         INSERT INTO part_time.user
         (
-        user_id,phone,pwd,nick_name,idfa,head_pic,c_time
+        phone,pwd,nick_name,idfa,head_pic,c_time
         )
         VALUES
         (
-        #{userId}, #{phone}, #{pwd}, #{nickName}, #{idfa}, #{headPic}, #{cTime},
+        #{phone}, #{pwd}, #{nickName}, #{idfa}, #{headPic}, #{cTime}
         )
 
     </insert>

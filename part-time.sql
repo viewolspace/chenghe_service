@@ -184,5 +184,14 @@ SET FOREIGN_KEY_CHECKS = 1;
 ALTER TABLE `part_time`.`user`
 MODIFY COLUMN `user_id` int(0) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '用户ID' FIRST;
 
+
+#### 2019-07-23
+
+
 ALTER TABLE `ad`
 	ADD COLUMN `title` varchar(200) NULL AFTER `m_time`;
+
+
+	ALTER TABLE `user`
+	MODIFY COLUMN `pwd` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '密码' AFTER `phone`,
+	MODIFY COLUMN `head_pic` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '头像' AFTER `idfa`;
