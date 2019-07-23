@@ -180,3 +180,6 @@ CREATE TABLE `user_stat`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户统计表' ROW_FORMAT = Compact;
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+ALTER TABLE `part_time`.`user`
+MODIFY COLUMN `user_id` int(0) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '用户ID' FIRST;

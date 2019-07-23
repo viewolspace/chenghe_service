@@ -3,6 +3,7 @@
 <mapper namespace="PartTime">
 
     <sql id="selectCommon">
+        select
         id,
         company_id,
         recommend,
@@ -52,11 +53,11 @@
 
         INSERT INTO part_time.part_time
         (
-            company_id,recommend,category_id,category_name,top_num,title,salary,cycle,lable,contact_type,contact,content,num,work_time,work_address,status,s_time,e_time,browse_num,copy_num,join_num,c_time
+        company_id,recommend,category_id,category_name,top_num,title,salary,cycle,lable,contact_type,contact,content,num,work_time,work_address,status,s_time,e_time,browse_num,copy_num,join_num,c_time
         )
         VALUES
         (
-            #{companyId},#{recommend},#{categoryId},#{categoryName},#{topNum},#{title},#{salary},#{cycle},#{lable},#{contactType},#{contact},#{content},#{num},#{workTime},#{workAddress},#{status},#{sTime},#{eTime},#{browseNum},#{copyNum},#{joinNum},#{cTime}
+        #{companyId},#{recommend},#{categoryId},#{categoryName},#{topNum},#{title},#{salary},#{cycle},#{lable},#{contactType},#{contact},#{content},#{num},#{workTime},#{workAddress},#{status},#{sTime},#{eTime},#{browseNum},#{copyNum},#{joinNum},#{cTime}
         )
 
     </insert>
@@ -91,21 +92,20 @@
 	</update>
 
 
-
     <select id="listRecomment" parameterType="map" resultType="PartTime">
 
-        <include refid="selectCommon" />
+        <include refid="selectCommon"/>
 
         from part_time.part_time where recommend = #{recommend} and status = 0 and now() BETWEEN s_time and e_time
 
-        ORDER by top_num desc , id  desc
+        ORDER by top_num desc , id desc
 
     </select>
 
 
     <select id="listAll" parameterType="map" resultType="PartTime">
 
-        <include refid="selectCommon" />
+        <include refid="selectCommon"/>
 
         from part_time.part_time
 
@@ -120,18 +120,18 @@
 
         </where>
 
-        ORDER by top_num desc , id  desc
+        ORDER by top_num desc , id desc
 
     </select>
 
 
     <select id="listByCategory" parameterType="map" resultType="PartTime">
 
-        <include refid="selectCommon" />
+        <include refid="selectCommon"/>
 
-        from part_time.part_time where  category_id=#{categoryId} and status = 0 and now() BETWEEN s_time and e_time
+        from part_time.part_time where category_id=#{categoryId} and status = 0 and now() BETWEEN s_time and e_time
 
-        ORDER by top_num desc , id  desc
+        ORDER by top_num desc , id desc
 
     </select>
 

@@ -3,7 +3,7 @@ package com.chenghe.parttime.pojo;
 import java.util.Date;
 
 /**
- * describe:
+ * describe:兼职职位表
  *
  * @date: 2019/07/20 16:11:16:11
  * @version: V1.0
@@ -11,27 +11,27 @@ import java.util.Date;
  */
 public class PartTime {
     private Integer id;
-    private Integer companyId;
-    private Integer recommend;
-    private String categoryId;
-    private String categoryName;
-    private Integer topNum;
-    private String title;
-    private Integer salary;
-    private Integer cycle;
-    private String lable;
-    private Integer contactType;
-    private String contact;
-    private String content;
-    private Integer num;
-    private String workTime;
-    private String workAddress;
-    private Integer status;
-    private Date sTime;
-    private Date eTime;
-    private Integer browseNum;
-    private Integer copyNum;
-    private Integer joinNum;
+    private Integer companyId;  //商户id
+    private Integer recommend;  //1 推荐 0 正常
+    private String categoryId;  //职位分类id
+    private String categoryName;    //职位分类名称
+    private Integer topNum;     //置顶顺序 数字越大越靠前
+    private String title;       //标题
+    private Integer salary;     //薪水
+    private Integer cycle;      //周期 0 小时 1 天 2 周 3 月 4 季度
+    private String lable;       //多个标签空格分隔 例如：日结 长期 男女不限
+    private Integer contactType;    //联系方式类型  1 qq  2 微信 3 手机
+    private String contact;     //联系方式
+    private String content;     //详细内容
+    private Integer num;        //招聘人数
+    private String workTime;    //工作时间
+    private String workAddress; //工作地点
+    private Integer status;     //状态 0 有效  -1 无效
+    private Date sTime;     //开始时间
+    private Date eTime;     //结束时间
+    private Integer browseNum;  //浏览人数
+    private Integer copyNum;    //复制人数
+    private Integer joinNum;    //参与人数
     private Date cTime;
     private Date mTime;
 
