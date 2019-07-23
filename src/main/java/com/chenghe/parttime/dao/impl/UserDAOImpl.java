@@ -7,6 +7,7 @@ import com.chenghe.parttime.query.UserQuery;
 import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -21,6 +22,9 @@ import java.util.HashMap;
 public class UserDAOImpl extends BaseDAO<User> implements IUserDAO {
     @Override
     public int addUser(User user) {
+        Date d = new Date();
+        user.setcTime(d);
+        user.setmTime(d);
         return super.insert(user);
     }
 

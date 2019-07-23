@@ -72,6 +72,7 @@
     
     <select id="listAd" parameterType="map" resultType="Ad">
         <include refid="selectCommon"></include>
+        from part_time.ad
         where category_id = #{categoryId} and status = 0
         order by num
     </select>
