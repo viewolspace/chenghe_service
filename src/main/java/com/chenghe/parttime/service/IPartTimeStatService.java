@@ -12,11 +12,17 @@ import com.youguu.core.util.PageHolder;
  * @review:
  */
 public interface IPartTimeStatService {
+
     int addPartTimeStat(PartTimeStat partTimeStat);
 
-    int updatePartTimeStat(PartTimeStat partTimeStat);
-
-    PartTimeStat findByPartTimeIdAndStatDate(String partTimeId, String statDate);
+    PartTimeStat findByPartTimeIdAndStatDate(int partTimeId, String statDate);
 
     PageHolder<PartTimeStat> queryPartTimeStat(PartTimeStatQuery query);
+
+    int updateBrowseNum(int partTimeId,int num);
+
+    int updateCopyNum(int partTimeId,int num);
+
+    int updateJoinNum(int partTimeId,int num);
+
 }

@@ -7,6 +7,7 @@ import com.chenghe.parttime.query.UserJoinQuery;
 import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -21,6 +22,8 @@ import java.util.HashMap;
 public class UserJoinDAOImpl extends BaseDAO<UserJoin> implements IUserJoinDAO {
     @Override
     public int addUserJoin(UserJoin userJoin) {
+        userJoin.setcTime(new Date());
+        userJoin.setmTime(new Date());
         return super.insert(userJoin);
     }
 
@@ -30,10 +33,11 @@ public class UserJoinDAOImpl extends BaseDAO<UserJoin> implements IUserJoinDAO {
     }
 
     @Override
-    public UserJoin getUserJoin(int userId, int partTimeId) {
+    public UserJoin getUserJoin(int userId, int partTimeId,int type) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("userId", userId);
         hashMap.put("partTimeId", partTimeId);
+        hashMap.put("type", type);
         return this.findUniqueBy("findByUserIdAndPartTimeId", hashMap);
     }
 

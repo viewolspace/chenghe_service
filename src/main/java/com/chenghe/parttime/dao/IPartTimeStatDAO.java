@@ -14,9 +14,13 @@ import com.youguu.core.util.PageHolder;
 public interface IPartTimeStatDAO {
     int addPartTimeStat(PartTimeStat partTimeStat);
 
-    int updatePartTimeStat(PartTimeStat partTimeStat);
+    int updateBrowseNum(int partTimeId,String data,int num);
 
-    PartTimeStat findByPartTimeIdAndStatDate(String partTimeId, String statDate);
+    int updateCopyNum(int partTimeId,String data,int num);
+
+    int updateJoinNum(int partTimeId,String data,int num);
+
+    PartTimeStat findByPartTimeIdAndStatDate(int partTimeId, String statDate);
 
     PageHolder<PartTimeStat> queryPartTimeStat(PartTimeStatQuery query);
 }

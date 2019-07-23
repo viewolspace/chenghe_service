@@ -25,7 +25,7 @@
         )
     </insert>
 
-    <update id="update" parameterType="PartTimeStat">
+    <update id="updateNum" parameterType="map">
         UPDATE part_time.part_time_stat
         <set>
             <if test="browseNum != null  and browseNum != 0">
@@ -39,7 +39,7 @@
             </if>
         </set>
         WHERE
-        part_time_id = #{partTimeId}
+        part_time_id = #{partTimeId} and statDate = #{statDate}
     </update>
 
     <sql id="sql_count">

@@ -7,7 +7,7 @@
 
     <select id="findByUserIdAndPartTimeId" parameterType="map" resultType="UserJoin">
         <include refid="selectCommon"/>
-        from part_time.user_join a where user_id = #{userId} and part_time_id = #{partTimeId}
+        from part_time.user_join a where user_id = #{userId} and part_time_id = #{partTimeId} and type=#{type}
     </select>
 
     <insert id="insert" parameterType="UserJoin" useGeneratedKeys="true" keyColumn="id" keyProperty="id">

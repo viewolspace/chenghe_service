@@ -16,7 +16,7 @@ public interface IUserJoinDAO {
 
     int updateUserJoin(UserJoin userJoin);
 
-    UserJoin getUserJoin(int userId, int partTimeId);
+    UserJoin getUserJoin(int userId, int partTimeId,int type);
 
     PageHolder<UserJoin> queryUserJoin(UserJoinQuery query);
 

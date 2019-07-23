@@ -23,10 +23,7 @@ public class PartTimeStatDAOImpl extends BaseDAO<PartTimeStat> implements IPartT
         return super.insert(partTimeStat);
     }
 
-    @Override
-    public int updatePartTimeStat(PartTimeStat partTimeStat) {
-        return super.update(partTimeStat);
-    }
+
 
     @Override
     public PartTimeStat findByPartTimeIdAndStatDate(String partTimeId, String statDate) {
@@ -39,5 +36,32 @@ public class PartTimeStatDAOImpl extends BaseDAO<PartTimeStat> implements IPartT
     @Override
     public PageHolder<PartTimeStat> queryPartTimeStat(PartTimeStatQuery query) {
         return super.pagedQuery("findByParams", query.getMap(), query.getPageIndex(), query.getPageSize());
+    }
+
+    @Override
+    public int updateBrowseNum(int partTimeId, String data,int num) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("partTimeId", partTimeId);
+        hashMap.put("statDate", data);
+        hashMap.put("browseNum", num);
+        return super.updateBy("updateNum",hashMap);
+    }
+
+    @Override
+    public int updateCopyNum(int partTimeId, String data,int num) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("partTimeId", partTimeId);
+        hashMap.put("statDate", data);
+        hashMap.put("copyNum", num);
+        return super.updateBy("updateNum",hashMap);
+    }
+
+    @Override
+    public int updateJoinNum(int partTimeId, String data,int num) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("partTimeId", partTimeId);
+        hashMap.put("statDate", data);
+        hashMap.put("joinNum", num);
+        return super.updateBy("updateNum",hashMap);
     }
 }

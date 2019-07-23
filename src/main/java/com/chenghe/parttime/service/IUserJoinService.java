@@ -12,11 +12,11 @@ import com.youguu.core.util.PageHolder;
  * @review:
  */
 public interface IUserJoinService {
-    int addUserJoin(UserJoin userJoin);
+    int addUserJoin(int userId, int partTimeId,int type);
 
     int updateUserJoin(UserJoin userJoin);
 
-    UserJoin getUserJoin(int userId, int partTimeId);
+    UserJoin getUserJoin(int userId, int partTimeId,int type);
 
     PageHolder<UserJoin> queryUserJoin(UserJoinQuery query);
 }

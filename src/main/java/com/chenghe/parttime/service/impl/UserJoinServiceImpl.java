@@ -22,8 +22,18 @@ public class UserJoinServiceImpl implements IUserJoinService {
     private IUserJoinDAO userJoinDAO;
 
     @Override
-    public int addUserJoin(UserJoin userJoin) {
-        return userJoinDAO.addUserJoin(userJoin);
+    public int addUserJoin(int userId, int partTimeId,int type) {
+        UserJoin userJoin = userJoinDAO.getUserJoin(userId, partTimeId, type);
+        if(userJoin==null){
+            userJoin = new UserJoin();
+            userJoin.setPartTimeId(partTimeId);
+            userJoin.setUserId(userId);
+            userJoin.setType(type);
+            return userJoinDAO.addUserJoin(userJoin);
+        }else{
+            return 0;
+        }
+
     }
 
     @Override
@@ -32,8 +42,8 @@ public class UserJoinServiceImpl implements IUserJoinService {
     }
 
     @Override
-    public UserJoin getUserJoin(int userId, int partTimeId) {
-        return userJoinDAO.getUserJoin(userId, partTimeId);
+    public UserJoin getUserJoin(int userId, int partTimeId,int type) {
+        return userJoinDAO.getUserJoin(userId, partTimeId,type);
     }
 
     @Override

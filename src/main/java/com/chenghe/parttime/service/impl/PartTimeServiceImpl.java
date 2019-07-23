@@ -4,6 +4,8 @@ import com.chenghe.parttime.dao.IPartTimeDAO;
 import com.chenghe.parttime.pojo.PartTime;
 import com.chenghe.parttime.query.PartTimeQuery;
 import com.chenghe.parttime.service.IPartTimeService;
+import com.chenghe.parttime.service.IPartTimeStatService;
+import com.chenghe.parttime.service.IUserJoinService;
 import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +21,15 @@ import java.util.List;
  */
 @Service("partTimeService")
 public class PartTimeServiceImpl implements IPartTimeService {
+
     @Resource
     private IPartTimeDAO partTimeDAO;
+
+    @Resource
+    private IUserJoinService userJoinService;
+
+    @Resource
+    private IPartTimeStatService partTimeStatService;
 
     @Override
     public int addPartTime(PartTime partTime) {
@@ -65,5 +74,41 @@ public class PartTimeServiceImpl implements IPartTimeService {
     @Override
     public List<PartTime> listByCategory(String categoryId, int pageIndex, int pageSize) {
         return partTimeDAO.listByCategory(categoryId, pageIndex, pageSize);
+    }
+
+    @Override
+    public PartTime getAndStatPartTime(int id, int uid, String idfa) {
+        partTimeStatService.updateBrowseNum(id,1);
+        return partTimeDAO.getPartTime(id);
+    }
+
+    @Override
+    public int copyPartTime(int userId, int partTimeId) {
+        if(userId<=0){
+            return 0;
+        }
+
+        int result = userJoinService.addUserJoin(userId,partTimeId,2);
+
+        if(result > 0){
+            partTimeStatService.updateCopyNum(partTimeId,1);
+        }
+
+        return result;
+    }
+
+    @Override
+    public int joinPartTime(int userId, int partTimeId) {
+        if(userId<=0){
+            return 0;
+        }
+
+        int result = userJoinService.addUserJoin(userId,partTimeId,1);
+
+        if(result > 0){
+            partTimeStatService.updateJoinNum(partTimeId,1);
+        }
+
+        return result;
     }
 }

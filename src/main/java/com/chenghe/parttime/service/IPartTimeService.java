@@ -19,7 +19,20 @@ public interface IPartTimeService {
 
     int updatePartTime(PartTime partTime);
 
+    /**
+     * 管理平台使用
+     * @param id
+     * @return
+     */
     PartTime getPartTime(int id);
+
+    /**
+     * 前端使用 同时会进行浏览统计
+     * 统计点击的数量
+     * @param id
+     * @return
+     */
+    PartTime getAndStatPartTime(int id,int uid,String idfa);
 
     PageHolder<PartTime> queryPartTime(PartTimeQuery query);
 
@@ -54,4 +67,20 @@ public interface IPartTimeService {
      * @return
      */
     List<PartTime> listByCategory(String categoryId,int pageIndex,int pageSize);
+
+    /**
+     * 复制
+     * @param userId
+     * @param partTimeId
+     * @return
+     */
+    int copyPartTime(int userId,int partTimeId);
+
+    /**
+     * 报名
+     * @param userId
+     * @param partTimeId
+     * @return
+     */
+    int joinPartTime(int userId,int partTimeId);
 }

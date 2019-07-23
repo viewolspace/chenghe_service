@@ -8,6 +8,8 @@ import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * describe:
@@ -18,6 +20,9 @@ import javax.annotation.Resource;
  */
 @Service("partTimeStatService")
 public class PartTimeStatServiceImpl implements IPartTimeStatService {
+
+    private String statDate;
+
     @Resource
     private IPartTimeStatDAO partTimeStatDAO;
 
@@ -26,18 +31,77 @@ public class PartTimeStatServiceImpl implements IPartTimeStatService {
         return partTimeStatDAO.addPartTimeStat(partTimeStat);
     }
 
-    @Override
-    public int updatePartTimeStat(PartTimeStat partTimeStat) {
-        return partTimeStatDAO.updatePartTimeStat(partTimeStat);
-    }
+
 
     @Override
-    public PartTimeStat findByPartTimeIdAndStatDate(String partTimeId, String statDate) {
+    public PartTimeStat findByPartTimeIdAndStatDate(int partTimeId, String statDate) {
         return partTimeStatDAO.findByPartTimeIdAndStatDate(partTimeId, statDate);
     }
 
     @Override
     public PageHolder<PartTimeStat> queryPartTimeStat(PartTimeStatQuery query) {
         return partTimeStatDAO.queryPartTimeStat(query);
+    }
+
+
+
+    private void dateDecide(int partTimeId) throws Exception{
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String nowDate = sdf.format(new Date());
+        if(statDate==null || !nowDate.equals(statDate)){
+            synchronized (this){
+                if(statDate==null || !nowDate.equals(statDate)){
+                    PartTimeStat partTimeStat =  partTimeStatDAO.findByPartTimeIdAndStatDate(partTimeId, nowDate);
+                    if(partTimeStat==null){
+                        //新建
+                        partTimeStat = new PartTimeStat();
+                        partTimeStat.setBrowseNum(0);
+                        partTimeStat.setCopyNum(0);
+                        partTimeStat.setJoinNum(0);
+                        partTimeStat.setPartTimeId(partTimeId);
+                        partTimeStat.setStatDate(sdf.parse(nowDate));
+                        partTimeStatDAO.addPartTimeStat(partTimeStat);
+                    }
+                    statDate = nowDate;
+                }
+
+            }
+        }
+    }
+
+    @Override
+    public int updateBrowseNum(int partTimeId, int num) {
+        try{
+            this.dateDecide(partTimeId);
+            return partTimeStatDAO.updateBrowseNum(partTimeId, statDate, num);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    @Override
+    public int updateCopyNum(int partTimeId, int num) {
+        try{
+            this.dateDecide(partTimeId);
+            return partTimeStatDAO.updateCopyNum(partTimeId, statDate, num);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    @Override
+    public int updateJoinNum(int partTimeId,  int num) {
+        try{
+            this.dateDecide(partTimeId);
+            return partTimeStatDAO.updateJoinNum(partTimeId, statDate, num);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return 0;
     }
 }
