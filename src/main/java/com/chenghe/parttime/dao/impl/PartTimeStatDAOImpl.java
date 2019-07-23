@@ -26,7 +26,7 @@ public class PartTimeStatDAOImpl extends BaseDAO<PartTimeStat> implements IPartT
 
 
     @Override
-    public PartTimeStat findByPartTimeIdAndStatDate(String partTimeId, String statDate) {
+    public PartTimeStat findByPartTimeIdAndStatDate(int partTimeId, String statDate) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("partTimeId", partTimeId);
         hashMap.put("statDate", statDate);
@@ -64,4 +64,6 @@ public class PartTimeStatDAOImpl extends BaseDAO<PartTimeStat> implements IPartT
         hashMap.put("joinNum", num);
         return super.updateBy("updateNum",hashMap);
     }
+
+
 }
