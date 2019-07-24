@@ -115,7 +115,7 @@
 
 
             <if test="title != null and title != '' ">
-                AND a.title LIKE concat(concat('%',#{title}),'%')
+                AND title LIKE concat(concat('%',#{title}),'%')
             </if>
 
         </where>
