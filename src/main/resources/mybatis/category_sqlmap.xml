@@ -6,7 +6,6 @@
 			a.parent_id,
 			a.TYPE,
 			a.num,
-			a.logo,
 			a.NAME,
 			a.c_time
 	</sql>
@@ -20,7 +19,6 @@
 				parent_id,
 				TYPE,
 				num,
-				logo,
 				NAME,
 				c_time
 				)
@@ -29,7 +27,6 @@
 				#{parentId},
 				#{type},
 				#{num},
-				#{logo},
 				#{name},
 				#{cTime}
 				)
@@ -53,7 +50,6 @@
 				parent_id = #{parentId} ,
 				TYPE = #{type} ,
 				num = #{num} ,
-				logo = #{logo} ,
 				NAME = #{name}
 
 				WHERE
