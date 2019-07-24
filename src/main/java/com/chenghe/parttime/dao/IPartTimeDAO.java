@@ -34,5 +34,6 @@ public interface IPartTimeDAO {
 
     List<PartTime> listByCategory(String categoryId,int pageIndex,int pageSize);
 
+    List<PartTime> listMyjoin(int userId,int pageIndex,int pageSize);
 
 }

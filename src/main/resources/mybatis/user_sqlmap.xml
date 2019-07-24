@@ -2,7 +2,19 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="User">
     <sql id="selectCommon">
-		select user_id,phone,pwd,nick_name,idfa,head_pic,c_time,m_time
+		select user_id,
+                phone,
+                pwd,
+                nick_name,
+                idfa,
+                head_pic,
+                c_time,
+                m_time,
+                real_name,
+                sex,
+                birthday,
+                EXP,
+                des
 	</sql>
 
     <select id="select" parameterType="int" resultType="User">
@@ -37,7 +49,12 @@
 			phone = #{phone} ,
 			nick_name = #{nickName} ,
 			head_pic = #{headPic} ,
-			m_time = #{mTime}
+			m_time = #{mTime},
+			real_name = #{realName},
+			sex = #{sex} ,
+            birthday = #{birthday} ,
+            EXP = #{exp} ,
+            des = #{des}
 			WHERE
 			user_id = #{userId}
 	</update>

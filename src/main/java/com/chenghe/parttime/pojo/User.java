@@ -19,6 +19,14 @@ public class User {
     private Date cTime;
     private Date mTime;
 
+    private String realName;
+    private int sex;
+    private Date birthday;
+    private String exp;
+    private String des;
+
+
+
     public Integer getUserId() {
         return userId;
     }
@@ -81,5 +89,45 @@ public class User {
 
     public void setmTime(Date mTime) {
         this.mTime = mTime;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getExp() {
+        return exp;
+    }
+
+    public void setExp(String exp) {
+        this.exp = exp;
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
     }
 }

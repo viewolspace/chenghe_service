@@ -111,4 +111,9 @@ public class PartTimeServiceImpl implements IPartTimeService {
 
         return result;
     }
+
+    @Override
+    public List<PartTime> listMyjoin(int userId, int pageIndex, int pageSize) {
+        return partTimeDAO.listMyjoin(userId, pageIndex, pageSize);
+    }
 }

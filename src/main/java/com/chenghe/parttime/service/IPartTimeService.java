@@ -83,4 +83,6 @@ public interface IPartTimeService {
      * @return
      */
     int joinPartTime(int userId,int partTimeId);
+
+    List<PartTime> listMyjoin(int userId,int pageIndex,int pageSize);
 }

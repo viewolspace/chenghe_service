@@ -195,3 +195,14 @@ ALTER TABLE `ad`
 	ALTER TABLE `user`
 	MODIFY COLUMN `pwd` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '密码' AFTER `phone`,
 	MODIFY COLUMN `head_pic` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '头像' AFTER `idfa`;
+
+
+
+# 2017-07-03
+
+alter table `part_time`.`user`
+   add column `real_name` varchar(100) NULL after `m_time`,
+   add column `sex` int(4) NULL COMMENT '1 男 2女' after `real_name`,
+   add column `birthday` date NULL after `sex`,
+   add column `exp` varchar(4000) NULL after `birthday`,
+   add column `des` varchar(4000) NULL after `exp`

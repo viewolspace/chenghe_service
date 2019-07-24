@@ -103,6 +103,41 @@
     </select>
 
 
+    <select id="listMyjoin" parameterType="map" resultType="PartTime">
+
+        select
+        a.id,
+        a.company_id,
+        a.recommend,
+        a.category_id,
+        a.category_name,
+        a.top_num,
+        a.title,
+        a.salary,
+        a.cycle,
+        a.lable,
+        a.contact_type,
+        a.contact,
+        a.content,
+        a.num,
+        a.work_time,
+        a.work_address,
+        a.status,
+        a.s_time,
+        a.e_time,
+        a.browse_num,
+        a.copy_num,
+        a.join_num,
+        a.c_time,
+        a.m_time
+
+        from user_join b , part_time.part_time a where b.type=1 AND b.user_id = #{userId} AND b.part_time_id = a.id
+
+        ORDER by top_num id desc
+
+    </select>
+
+
     <select id="listAll" parameterType="map" resultType="PartTime">
 
         <include refid="selectCommon"/>
