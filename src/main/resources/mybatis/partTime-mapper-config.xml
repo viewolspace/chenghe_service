@@ -23,6 +23,7 @@
         <typeAlias alias="User" type="com.chenghe.parttime.pojo.User"/>
         <typeAlias alias="UserJoin" type="com.chenghe.parttime.pojo.UserJoin"/>
         <typeAlias alias="UserStat" type="com.chenghe.parttime.pojo.UserStat"/>
+        <typeAlias alias="Idfa" type="com.chenghe.parttime.pojo.Idfa"/>
 
     </typeAliases>
 
@@ -41,6 +42,7 @@
         <mapper resource="mybatis/user_sqlmap.xml"/>
         <mapper resource="mybatis/user_join_sqlmap.xml"/>
         <mapper resource="mybatis/userStat_sqlmap.xml"/>
+        <mapper resource="mybatis/idfa_sqlmap.xml"/>
     </mappers>
 
 </configuration>

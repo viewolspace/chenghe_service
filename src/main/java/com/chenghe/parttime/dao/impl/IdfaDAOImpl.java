@@ -1,6 +1,11 @@
 package com.chenghe.parttime.dao.impl;
 
+import com.chenghe.parttime.dao.BaseDAO;
 import com.chenghe.parttime.dao.IIdfaDAO;
+import com.chenghe.parttime.pojo.Idfa;
+import org.springframework.stereotype.Repository;
+
+import java.util.Date;
 
 /**
  * describe:
@@ -10,5 +15,18 @@ import com.chenghe.parttime.dao.IIdfaDAO;
  * @version: V1.0
  * @review:
  */
-public class IdfaDAOImpl implements IIdfaDAO {
+@Repository("idfaDAO")
+public class IdfaDAOImpl extends BaseDAO<Idfa> implements IIdfaDAO {
+    @Override
+    public Idfa get(String idfa) {
+        return super.get(idfa);
+    }
+
+    @Override
+    public int addIdfa(Idfa idfa) {
+        Date d = new Date();
+        idfa.setcTime(d);
+        idfa.setmTime(d);
+        return super.insert(idfa);
+    }
 }

@@ -1,5 +1,7 @@
 package com.chenghe.parttime.service;
 
+import com.chenghe.parttime.pojo.Idfa;
+
 /**
  * describe:
  *
@@ -9,4 +11,7 @@ package com.chenghe.parttime.service;
  * @review:
  */
 public interface IIdfaService {
+    int addIdfa(String idfa,String os);
+
+    Idfa getIdfa(String idfa);
 }

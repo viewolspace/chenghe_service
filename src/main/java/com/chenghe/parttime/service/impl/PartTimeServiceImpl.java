@@ -6,6 +6,7 @@ import com.chenghe.parttime.query.PartTimeQuery;
 import com.chenghe.parttime.service.IPartTimeService;
 import com.chenghe.parttime.service.IPartTimeStatService;
 import com.chenghe.parttime.service.IUserJoinService;
+import com.chenghe.parttime.service.IUserStatService;
 import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,9 @@ public class PartTimeServiceImpl implements IPartTimeService {
 
     @Resource
     private IPartTimeStatService partTimeStatService;
+
+    @Resource
+    private IUserStatService userStatService;
 
     @Override
     public int addPartTime(PartTime partTime) {
@@ -79,6 +83,7 @@ public class PartTimeServiceImpl implements IPartTimeService {
     @Override
     public PartTime getAndStatPartTime(int id, int uid, String idfa) {
         partTimeStatService.updateBrowseNum(id,1);
+        userStatService.incBrowseNum();
         return partTimeDAO.getPartTime(id);
     }
 
@@ -92,6 +97,7 @@ public class PartTimeServiceImpl implements IPartTimeService {
 
         if(result > 0){
             partTimeStatService.updateCopyNum(partTimeId,1);
+            userStatService.incCopyNum();
         }
 
         return result;
@@ -107,6 +113,7 @@ public class PartTimeServiceImpl implements IPartTimeService {
 
         if(result > 0){
             partTimeStatService.updateJoinNum(partTimeId,1);
+            userStatService.incJoinNum();
         }
 
         return result;

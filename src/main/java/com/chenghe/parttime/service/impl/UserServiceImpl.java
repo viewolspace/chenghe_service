@@ -4,6 +4,7 @@ import com.chenghe.parttime.dao.IUserDAO;
 import com.chenghe.parttime.pojo.User;
 import com.chenghe.parttime.query.UserQuery;
 import com.chenghe.parttime.service.IUserService;
+import com.chenghe.parttime.service.IUserStatService;
 import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +22,18 @@ public class UserServiceImpl implements IUserService {
     @Resource
     private IUserDAO userDAO;
 
+    @Resource
+    private IUserStatService userStatService;
+
     @Override
     public int addUser(User user) {
-        return userDAO.addUser(user);
+        int uid =  userDAO.addUser(user);
+
+        //增加今日注册计数
+        if(uid > 0){
+            userStatService.incRegistNum();
+        }
+        return uid;
     }
 
     @Override

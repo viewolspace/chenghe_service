@@ -1,5 +1,7 @@
 package com.chenghe.parttime.dao;
 
+import com.chenghe.parttime.pojo.Idfa;
+
 /**
  * describe:
  *
@@ -9,4 +11,8 @@ package com.chenghe.parttime.dao;
  * @review:
  */
 public interface IIdfaDAO {
+
+    Idfa get(String idfa);
+
+    int addIdfa(Idfa idfa);
 }

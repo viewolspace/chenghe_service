@@ -19,4 +19,16 @@ public interface IUserStatService {
     UserStat findByStatDate(String statDate);
 
     PageHolder<UserStat> queryUserStat(UserStatQuery query);
+
+    int incIdfaNum();
+
+    int incActiveNum();
+
+    int incRegistNum();
+
+    int incBrowseNum();
+
+    int incJoinNum();
+
+    int incCopyNum();
 }
