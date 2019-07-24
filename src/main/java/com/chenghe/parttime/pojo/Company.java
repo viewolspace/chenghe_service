@@ -1,5 +1,7 @@
 package com.chenghe.parttime.pojo;
 
+import com.chenghe.parttime.util.ImageUtils;
+
 /**
  * describe:
  *
@@ -34,11 +36,11 @@ public class Company {
     }
 
     public String getLogo() {
-        return logo;
+        return ImageUtils.addUrlImage(logo);
     }
 
     public void setLogo(String logo) {
-        this.logo = logo;
+        this.logo = ImageUtils.diffUrlImage(logo);
     }
 
     public String getQq() {

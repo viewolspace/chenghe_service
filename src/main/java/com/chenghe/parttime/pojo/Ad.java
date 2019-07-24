@@ -1,5 +1,7 @@
 package com.chenghe.parttime.pojo;
 
+import com.chenghe.parttime.util.ImageUtils;
+
 import java.util.Date;
 
 /**
@@ -37,11 +39,11 @@ public class Ad {
     }
 
     public String getImageUrl() {
-        return imageUrl;
+        return ImageUtils.addUrlImage(imageUrl);
     }
 
     public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+        this.imageUrl = ImageUtils.diffUrlImage(imageUrl);
     }
 
     public String getUrl() {
