@@ -2,7 +2,7 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UserJoin">
     <sql id="selectCommon">
-		user_id,part_time_id,type,c_time,m_time
+		select user_id,part_time_id,type,c_time,m_time
 	</sql>
 
     <select id="findByUserIdAndPartTimeId" parameterType="map" resultType="UserJoin">
