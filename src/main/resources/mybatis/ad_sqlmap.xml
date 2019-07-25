@@ -17,11 +17,11 @@
 
         INSERT INTO part_time.ad
         (
-            category_id,image_url,url,num,status,c_time,title
+        category_id,image_url,url,num,status,c_time,title
         )
         VALUES
         (
-            #{categoryId}, #{imageUrl}, #{url}, #{num}, #{status}, #{cTime},#{title}
+        #{categoryId}, #{imageUrl}, #{url}, #{num}, #{status}, #{cTime},#{title}
         )
     </insert>
 
@@ -68,15 +68,15 @@
         <include refid="sql_where"/>
         <include refid="sql_order"/>
     </select>
-    
-    
+
+
     <select id="listAd" parameterType="map" resultType="Ad">
         <include refid="selectCommon"></include>
         from part_time.ad
         where category_id = #{categoryId} and status = 0
         order by num
     </select>
-    
+
 
     <delete id="delete" parameterType="int">
 		delete from part_time.ad WHERE id = #{id} ;

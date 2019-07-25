@@ -133,7 +133,7 @@
 
         from user_join b , part_time.part_time a where b.type=1 AND b.user_id = #{userId} AND b.part_time_id = a.id
 
-        ORDER by top_num id desc
+        ORDER by top_num, id desc
 
     </select>
 

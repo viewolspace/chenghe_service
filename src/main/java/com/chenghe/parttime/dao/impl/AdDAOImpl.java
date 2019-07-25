@@ -49,6 +49,7 @@ public class AdDAOImpl extends BaseDAO<Ad> implements IAdDAO {
     @Override
     public List<Ad> listAd(String categoryId) {
         Map<String,Object> map = new HashMap<>();
+        map.put("categoryId", categoryId);
         return super.findBy("listAd",map);
     }
 }
