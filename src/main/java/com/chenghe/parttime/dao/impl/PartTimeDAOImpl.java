@@ -47,18 +47,18 @@ public class PartTimeDAOImpl extends BaseDAO<PartTime> implements IPartTimeDAO {
     }
 
     @Override
-    public int updateRecommnet(int id, int recommnet) {
+    public int updateRecommned(int id, int recommend) {
         Map<String,Object> map = new HashMap<>();
-        map.put("recommnet",recommnet);
+        map.put("recommend",recommend);
         map.put("id",id);
-        return super.updateBy("updateRecommnet",map);
+        return super.updateBy("updateRecommned",map);
     }
 
     @Override
-    public List<PartTime> listRecomment(int recommnet, int pageIndex, int pageSize) {
+    public List<PartTime> listRecommend(int recommend, int pageIndex, int pageSize) {
         Map<String,Object> map = new HashMap<>();
-        map.put("recommnet",recommnet);
-        return super.pagedBy("listRecomment",map,pageIndex,pageSize);
+        map.put("recommend",recommend);
+        return super.pagedBy("listRecommend",map,pageIndex,pageSize);
     }
 
     @Override

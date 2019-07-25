@@ -36,8 +36,8 @@
     </select>
 
 
-    <update id="updateRecommnet" parameterType="map">
-        update part_time set recomment=#{recomment}
+    <update id="updateRecommned" parameterType="map">
+        update part_time set recommend=#{recommend}
         where id = #{id}
     </update>
 
@@ -92,7 +92,7 @@
 	</update>
 
 
-    <select id="listRecomment" parameterType="map" resultType="PartTime">
+    <select id="listRecommend" parameterType="map" resultType="PartTime">
 
         <include refid="selectCommon"/>
 

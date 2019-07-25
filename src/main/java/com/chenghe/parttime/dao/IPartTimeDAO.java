@@ -18,7 +18,7 @@ public interface IPartTimeDAO {
 
     int updatePartTime(PartTime partTime);
 
-    int updateRecommnet(int id,int recommnet);
+    int updateRecommned(int id,int recommend);
 
     PartTime getPartTime(int id);
 
@@ -26,7 +26,7 @@ public interface IPartTimeDAO {
 
     int delete(int id);
 
-    List<PartTime> listRecomment(int recommnet,int pageIndex,int pageSize);
+    List<PartTime> listRecommend(int recommend,int pageIndex,int pageSize);
 
 
     List<PartTime> listAll(String title,int pageIndex,int pageSize);

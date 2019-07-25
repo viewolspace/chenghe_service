@@ -61,13 +61,13 @@ public class PartTimeServiceImpl implements IPartTimeService {
     }
 
     @Override
-    public int updateRecommnet(int id, int recommnet) {
-        return partTimeDAO.updateRecommnet(id, recommnet);
+    public int updateRecommned(int id, int recommnet) {
+        return partTimeDAO.updateRecommned(id, recommnet);
     }
 
     @Override
-    public List<PartTime> listRecomment(int recommnet, int pageIndex, int pageSize) {
-        return partTimeDAO.listRecomment(recommnet, pageIndex, pageSize);
+    public List<PartTime> listRecommend(int recommend, int pageIndex, int pageSize) {
+        return partTimeDAO.listRecommend(recommend, pageIndex, pageSize);
     }
 
     @Override

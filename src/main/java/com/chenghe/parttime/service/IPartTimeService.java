@@ -38,16 +38,16 @@ public interface IPartTimeService {
 
     int delete(int id);
 
-    int updateRecommnet(int id,int recommnet);
+    int updateRecommned(int id,int recommend);
 
     /**
      * 查询 热门 或者 精选
-     * @param recommnet
+     * @param recommend
      * @param pageIndex
      * @param pageSize
      * @return
      */
-    List<PartTime> listRecomment(int recommnet,int pageIndex,int pageSize);
+    List<PartTime> listRecommend(int recommend,int pageIndex,int pageSize);
 
     /**
      * 查询全部 或者 搜索
