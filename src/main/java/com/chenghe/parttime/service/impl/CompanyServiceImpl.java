@@ -8,6 +8,7 @@ import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * describe:
@@ -47,5 +48,10 @@ public class CompanyServiceImpl implements ICompanyService {
     @Override
     public int delete(int id) {
         return companyDAO.delete(id);
+    }
+
+    @Override
+    public List<Company> queryAll() {
+        return companyDAO.queryAll();
     }
 }

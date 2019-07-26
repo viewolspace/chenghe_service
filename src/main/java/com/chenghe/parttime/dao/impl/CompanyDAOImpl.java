@@ -7,6 +7,8 @@ import com.chenghe.parttime.query.CompanyQuery;
 import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * describe:
  *
@@ -39,5 +41,10 @@ public class CompanyDAOImpl extends BaseDAO<Company> implements ICompanyDAO {
     @Override
     public int delete(int id) {
         return super.delete(id);
+    }
+
+    @Override
+    public List<Company> queryAll() {
+        return super.getAll();
     }
 }

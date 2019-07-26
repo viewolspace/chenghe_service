@@ -4,6 +4,8 @@ import com.chenghe.parttime.pojo.Company;
 import com.chenghe.parttime.query.CompanyQuery;
 import com.youguu.core.util.PageHolder;
 
+import java.util.List;
+
 /**
  * describe:
  *
@@ -23,4 +25,7 @@ public interface ICompanyDAO {
     PageHolder<Company> queryCompany(CompanyQuery query);
 
     int delete(int id);
+
+    List<Company> queryAll();
+
 }

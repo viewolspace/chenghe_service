@@ -93,4 +93,9 @@
     <delete id="delete" parameterType="int">
 		delete from part_time.company WHERE id = #{id} ;
 	</delete>
+
+    <select id="select_all" resultType="Company">
+        <include refid="selectCommon"/> from part_time.company a
+    </select>
+
 </mapper>
