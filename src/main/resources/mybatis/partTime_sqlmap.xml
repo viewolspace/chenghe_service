@@ -184,11 +184,9 @@
             <if test="title != null and title != '' ">
                 AND a.title LIKE concat(concat('%',#{title}),'%')
             </if>
-            <if test="recommend != null  ">
+            <if test="recommend != null">
                 AND recommend = #{recommend}
             </if>
-
-
         </where>
     </sql>
 

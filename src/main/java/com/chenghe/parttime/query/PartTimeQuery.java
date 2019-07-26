@@ -9,7 +9,7 @@ import java.util.Map;
 public class PartTimeQuery {
     private String title;
 
-    private Integer recommnent;
+    private Integer recommend;
 
     private int pageIndex = 1;
 
@@ -23,14 +23,22 @@ public class PartTimeQuery {
         this.title = title;
     }
 
+    public Integer getRecommend() {
+        return recommend;
+    }
+
+    public void setRecommend(Integer recommend) {
+        this.recommend = recommend;
+    }
+
     public Map getMap() {
         Map<String, Object> map = new HashMap<>();
         if (title != null) {
             map.put("title", title);
         }
 
-        if (recommnent != null) {
-            map.put("recommnent", recommnent);
+        if (recommend != null) {
+            map.put("recommend", recommend);
         }
 
         return map;

@@ -10,7 +10,7 @@ public class UserQuery {
     private Integer userId;
     private String phone;
     private String nickName;
-    private String idfa;
+    private String realName;
 
     private int pageIndex = 1;
 
@@ -40,12 +40,12 @@ public class UserQuery {
         this.nickName = nickName;
     }
 
-    public String getIdfa() {
-        return idfa;
+    public String getRealName() {
+        return realName;
     }
 
-    public void setIdfa(String idfa) {
-        this.idfa = idfa;
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
     public Map getMap() {
@@ -59,8 +59,8 @@ public class UserQuery {
         if (nickName != null) {
             map.put("nickName", nickName);
         }
-        if (idfa != null) {
-            map.put("idfa", idfa);
+        if (realName != null) {
+            map.put("realName", realName);
         }
         return map;
     }

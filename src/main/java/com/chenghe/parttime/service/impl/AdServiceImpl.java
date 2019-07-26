@@ -2,8 +2,10 @@ package com.chenghe.parttime.service.impl;
 
 import com.chenghe.parttime.dao.IAdDAO;
 import com.chenghe.parttime.pojo.Ad;
+import com.chenghe.parttime.pojo.Category;
 import com.chenghe.parttime.query.AdQuery;
 import com.chenghe.parttime.service.IAdService;
+import com.chenghe.parttime.service.ICategoryService;
 import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,8 @@ public class AdServiceImpl implements IAdService {
 
     @Resource
     private IAdDAO adDAO;
+    @Resource
+    private ICategoryService categoryService;
 
     @Override
     public int addAd(Ad ad) {
@@ -40,7 +44,13 @@ public class AdServiceImpl implements IAdService {
 
     @Override
     public PageHolder<Ad> queryAd(AdQuery query) {
-        return adDAO.queryAd(query);
+
+        PageHolder<Ad> pageHolder = adDAO.queryAd(query);
+        for (Ad ad : pageHolder) {
+            Category category = categoryService.getCategory(ad.getCategoryId());
+            ad.setCategoryName(category.getName());
+        }
+        return pageHolder;
     }
 
     @Override

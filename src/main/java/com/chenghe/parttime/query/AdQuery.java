@@ -7,12 +7,21 @@ import java.util.Map;
  * Created by lenovo on 2018/6/29.
  */
 public class AdQuery {
+    private String title;
     private String categoryId;
     private Integer status;         //状态 0 有效  -1 无效
 
     private int pageIndex = 1;
 
     private int pageSize = 20;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getCategoryId() {
         return categoryId;
@@ -32,6 +41,9 @@ public class AdQuery {
 
     public Map getMap() {
         Map<String, Object> map = new HashMap<>();
+        if (title != null) {
+            map.put("title", title);
+        }
         if (categoryId != null) {
             map.put("categoryId", categoryId);
         }

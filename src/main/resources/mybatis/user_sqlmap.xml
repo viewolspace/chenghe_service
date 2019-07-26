@@ -75,14 +75,17 @@
     <sql id="sql_where">
         FROM part_time.user a
         <where>
+            <if test="userId != null and userId != '' ">
+                AND a.user_id = #{userId}
+            </if>
             <if test="phone != null and phone != '' ">
                 AND a.phone = #{phone}
             </if>
             <if test="nickName != null and nickName != '' ">
                 AND a.nick_name = #{nickName}
             </if>
-            <if test="idfa != null and idfa != '' ">
-                AND a.idfa = #{idfa}
+            <if test="realName != null and realName != '' ">
+                AND a.real_name = #{realName}
             </if>
         </where>
     </sql>

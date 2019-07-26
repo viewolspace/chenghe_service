@@ -46,6 +46,9 @@
     <sql id="sql_where">
         FROM part_time.ad a
         <where>
+            <if test="title != null and title != '' ">
+                AND a.title LIKE concat(concat('%',#{title}),'%')
+            </if>
             <if test="categoryId != null and categoryId != '' ">
                 AND a.category_id = #{categoryId}
             </if>
