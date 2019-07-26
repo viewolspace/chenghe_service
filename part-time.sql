@@ -198,7 +198,7 @@ ALTER TABLE `ad`
 
 
 
-# 2017-07-03
+#2019-07-25
 
 alter table `part_time`.`user`
    add column `real_name` varchar(100) NULL after `m_time`,
@@ -206,3 +206,9 @@ alter table `part_time`.`user`
    add column `birthday` date NULL after `sex`,
    add column `exp` varchar(4000) NULL after `birthday`,
    add column `des` varchar(4000) NULL after `exp`
+
+
+#2019-07-26
+
+alter table `part_time`.`part_time`
+   add column `pic` varchar(200) NULL COMMENT '兼职的宣传图片 , 宽图' after `m_time`

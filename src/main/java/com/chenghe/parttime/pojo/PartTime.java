@@ -1,5 +1,7 @@
 package com.chenghe.parttime.pojo;
 
+import com.chenghe.parttime.util.ImageUtils;
+
 import java.util.Date;
 
 /**
@@ -34,6 +36,8 @@ public class PartTime {
     private Integer joinNum;    //参与人数
     private Date cTime;
     private Date mTime;
+
+    private String pic;
 
     public Integer getId() {
         return id;
@@ -225,5 +229,13 @@ public class PartTime {
 
     public void setmTime(Date mTime) {
         this.mTime = mTime;
+    }
+
+    public String getPic() {
+        return ImageUtils.addUrlImage(pic);
+    }
+
+    public void setPic(String pic) {
+        this.pic = ImageUtils.diffUrlImage(pic);
     }
 }

@@ -27,7 +27,8 @@
         copy_num,
         join_num,
         c_time,
-        m_time
+        m_time,
+        pic
     </sql>
 
     <select id="select" parameterType="int" resultType="PartTime">
@@ -53,11 +54,11 @@
 
         INSERT INTO part_time.part_time
         (
-        company_id,recommend,category_id,category_name,top_num,title,salary,cycle,lable,contact_type,contact,content,num,work_time,work_address,status,s_time,e_time,browse_num,copy_num,join_num,c_time
+        company_id,recommend,category_id,category_name,top_num,title,salary,cycle,lable,contact_type,contact,content,num,work_time,work_address,status,s_time,e_time,browse_num,copy_num,join_num,c_time,pic
         )
         VALUES
         (
-        #{companyId},#{recommend},#{categoryId},#{categoryName},#{topNum},#{title},#{salary},#{cycle},#{lable},#{contactType},#{contact},#{content},#{num},#{workTime},#{workAddress},#{status},#{sTime},#{eTime},#{browseNum},#{copyNum},#{joinNum},#{cTime}
+        #{companyId},#{recommend},#{categoryId},#{categoryName},#{topNum},#{title},#{salary},#{cycle},#{lable},#{contactType},#{contact},#{content},#{num},#{workTime},#{workAddress},#{status},#{sTime},#{eTime},#{browseNum},#{copyNum},#{joinNum},#{cTime},#{pic}
         )
 
     </insert>
@@ -86,7 +87,8 @@
             browse_num=#{browseNum},
             copy_num=#{copyNum},
             join_num=#{joinNum},
-            m_time=#{mTime}
+            m_time=#{mTime},
+            pic=#{pic}
 			WHERE
 			id = #{id}
 	</update>
@@ -129,7 +131,8 @@
         a.copy_num,
         a.join_num,
         a.c_time,
-        a.m_time
+        a.m_time,
+        a.pic
 
         from user_join b , part_time.part_time a where b.type=1 AND b.user_id = #{userId} AND b.part_time_id = a.id
 
