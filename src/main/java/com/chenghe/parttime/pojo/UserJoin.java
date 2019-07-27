@@ -16,6 +16,11 @@ public class UserJoin {
     private Date cTime;
     private Date mTime;
 
+    //扩展字段，管理平台展示使用
+    private String nickName;    //昵称
+    private String realName;    //姓名
+    private String title;       //职位标题
+
     public Integer getUserId() {
         return userId;
     }
@@ -54,5 +59,29 @@ public class UserJoin {
 
     public void setmTime(Date mTime) {
         this.mTime = mTime;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

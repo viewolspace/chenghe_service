@@ -52,6 +52,18 @@
         </where>
     </sql>
 
+    <sql id="sql_list_where">
+        FROM part_time.user_join a left join part_time.user b on a.user_id=b.user_id left join part_time.part_time c on a.part_time_id=c.id
+        <where>
+            <if test="userId != null and userId != '' ">
+                AND a.user_id = #{userId}
+            </if>
+            <if test="partTimeId != null and partTimeId != '' ">
+                AND a.part_time_id = #{partTimeId}
+            </if>
+        </where>
+    </sql>
+
     <sql id="sql_order">
 		order by a.c_time desc
 	</sql>
@@ -61,8 +73,8 @@
         <include refid="sql_where"/>
     </select>
     <select id="findByParams" parameterType="java.util.HashMap" resultType="UserJoin">
-        <include refid="selectCommon"/>
-        <include refid="sql_where"/>
+        select a.user_id, a.part_time_id, a.type, a.c_time, a.m_time, b.nick_name, b.real_name, c.title
+        <include refid="sql_list_where"/>
         <include refid="sql_order"/>
     </select>
 </mapper>
