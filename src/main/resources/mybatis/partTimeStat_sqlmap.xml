@@ -39,7 +39,7 @@
             </if>
         </set>
         WHERE
-        part_time_id = #{partTimeId} and statDate = #{statDate}
+        part_time_id = #{partTimeId} and stat_date = #{statDate}
     </update>
 
     <sql id="sql_count">
