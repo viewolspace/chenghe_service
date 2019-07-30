@@ -54,7 +54,7 @@ public class UserStatServiceImpl implements IUserStatService {
         if(statDate==null || !nowDate.equals(statDate)){
             synchronized (this){
                 if(statDate==null || !nowDate.equals(statDate)){
-                    UserStat userStat =  userStatDAO.findByStatDate(statDate);
+                    UserStat userStat =  userStatDAO.findByStatDate(nowDate);
                     if(userStat==null){
                         //新建
                         userStat = new UserStat();
