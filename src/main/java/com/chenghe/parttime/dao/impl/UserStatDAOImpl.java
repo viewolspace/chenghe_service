@@ -29,6 +29,7 @@ public class UserStatDAOImpl extends BaseDAO<UserStat> implements IUserStatDAO {
 
     @Override
     public int updateUserStat(UserStat userStat) {
+        userStat.setmTime(new Date());
         return super.update(userStat);
     }
 
