@@ -7,6 +7,7 @@ import com.chenghe.parttime.query.PartTimeStatQuery;
 import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -20,6 +21,7 @@ import java.util.HashMap;
 public class PartTimeStatDAOImpl extends BaseDAO<PartTimeStat> implements IPartTimeStatDAO {
     @Override
     public int addPartTimeStat(PartTimeStat partTimeStat) {
+        partTimeStat.setcTime(new Date());
         return super.insert(partTimeStat);
     }
 
