@@ -15,10 +15,10 @@ public class LruCache<T,E> {
 
     public LruCache(int size){
         maxSize = size;
-        map = new LinkedHashMap<T,E>((int) Math.ceil(maxSize * 0.75f) + 1, 0.75f, true){
+        map = new LinkedHashMap<T,E>(maxSize + 1, 0.75f, true){
             @Override
             protected boolean removeEldestEntry(Map.Entry eldest) {
-                return size() > maxSize;
+                return size() >= maxSize;
             }
         };
     }
@@ -33,5 +33,10 @@ public class LruCache<T,E> {
 
     public E get(T key){
         return map.get(key);
+    }
+
+    public static void main(String[] args) {
+        LruCache<Integer,String> lruCache = new LruCache<Integer,String>(11);
+        System.out.println(lruCache.get(11));
     }
 }
