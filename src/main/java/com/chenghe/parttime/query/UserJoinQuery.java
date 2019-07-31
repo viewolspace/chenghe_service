@@ -9,6 +9,7 @@ import java.util.Map;
 public class UserJoinQuery {
     private Integer userId;
     private Integer partTimeId;
+    private Integer type;
 
     private int pageIndex = 1;
 
@@ -30,6 +31,14 @@ public class UserJoinQuery {
         this.partTimeId = partTimeId;
     }
 
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
     public Map getMap() {
         Map<String, Object> map = new HashMap<>();
         if (userId != null) {
@@ -38,7 +47,9 @@ public class UserJoinQuery {
         if (partTimeId != null) {
             map.put("partTimeId", partTimeId);
         }
-
+        if (type != null) {
+            map.put("type", type);
+        }
         return map;
     }
 

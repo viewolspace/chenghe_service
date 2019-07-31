@@ -61,6 +61,9 @@
             <if test="partTimeId != null and partTimeId != '' ">
                 AND a.part_time_id = #{partTimeId}
             </if>
+            <if test="type != null and type != '' ">
+                AND a.type = #{type}
+            </if>
         </where>
     </sql>
 
@@ -73,7 +76,7 @@
         <include refid="sql_where"/>
     </select>
     <select id="findByParams" parameterType="java.util.HashMap" resultType="UserJoin">
-        select a.user_id, a.part_time_id, a.type, a.c_time, a.m_time, b.nick_name, b.real_name, c.title
+        select a.user_id, a.part_time_id, a.type, a.c_time, a.m_time, b.nick_name, b.real_name, c.title, b.phone
         <include refid="sql_list_where"/>
         <include refid="sql_order"/>
     </select>
