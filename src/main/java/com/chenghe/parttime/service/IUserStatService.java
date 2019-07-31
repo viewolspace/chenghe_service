@@ -26,7 +26,7 @@ public interface IUserStatService {
 
     int incRegistNum();
 
-    int incBrowseNum();
+    int incBrowseNum(int num,int userNum);
 
     int incJoinNum();
 

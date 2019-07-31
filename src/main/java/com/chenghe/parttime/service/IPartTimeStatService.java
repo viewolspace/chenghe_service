@@ -19,7 +19,7 @@ public interface IPartTimeStatService {
 
     PageHolder<PartTimeStat> queryPartTimeStat(PartTimeStatQuery query);
 
-    int updateBrowseNum(int partTimeId,int num);
+    int updateBrowseNum(int partTimeId,int num,int userNum);
 
     int updateCopyNum(int partTimeId,int num);
 

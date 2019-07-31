@@ -64,6 +64,7 @@ public class UserStatServiceImpl implements IUserStatService {
                         userStat.setJoinNum(0);
                         userStat.setUserActive(0);
                         userStat.setUserIdfa(0);
+                        userStat.setBrowseUserNum(0);
                         userStat.setUserRegister(0);
                         userStatDAO.addUserStat(userStat);
                     }
@@ -132,7 +133,7 @@ public class UserStatServiceImpl implements IUserStatService {
     }
 
     @Override
-    public int incBrowseNum() {
+    public int incBrowseNum(int num,int userNum) {
         try{
             this.dateDecide();
         }catch (Exception e){
@@ -146,6 +147,7 @@ public class UserStatServiceImpl implements IUserStatService {
             e.printStackTrace();
         }
         userStat.setBrowseNum(1);
+        userStat.setBrowseUserNum(userNum);
 
         return userStatDAO.updateUserStat(userStat);
     }

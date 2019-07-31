@@ -12,6 +12,7 @@ import java.util.Date;
 public class PartTimeStat {
     private Integer partTimeId;
     private Date statDate;
+    private Integer browseUserNum;
     private Integer browseNum;
     private Integer copyNum;
     private Integer joinNum;
@@ -63,5 +64,13 @@ public class PartTimeStat {
 
     public void setcTime(Date cTime) {
         this.cTime = cTime;
+    }
+
+    public Integer getBrowseUserNum() {
+        return browseUserNum;
+    }
+
+    public void setBrowseUserNum(Integer browseUserNum) {
+        this.browseUserNum = browseUserNum;
     }
 }

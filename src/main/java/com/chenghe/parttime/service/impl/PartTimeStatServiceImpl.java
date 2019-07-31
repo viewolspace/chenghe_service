@@ -63,6 +63,7 @@ public class PartTimeStatServiceImpl implements IPartTimeStatService {
                         partTimeStat.setBrowseNum(0);
                         partTimeStat.setCopyNum(0);
                         partTimeStat.setJoinNum(0);
+                        partTimeStat.setBrowseUserNum(0);
                         partTimeStat.setPartTimeId(partTimeId);
                         partTimeStat.setStatDate(sdf.parse(nowDate));
                         partTimeStatDAO.addPartTimeStat(partTimeStat);
@@ -75,10 +76,10 @@ public class PartTimeStatServiceImpl implements IPartTimeStatService {
     }
 
     @Override
-    public int updateBrowseNum(int partTimeId, int num) {
+    public int updateBrowseNum(int partTimeId, int num,int userNum) {
         try{
             this.dateDecide(partTimeId);
-            return partTimeStatDAO.updateBrowseNum(partTimeId, lruCache.get(partTimeId), num);
+            return partTimeStatDAO.updateBrowseNum(partTimeId, lruCache.get(partTimeId), num,userNum);
         }catch (Exception e){
             e.printStackTrace();
         }

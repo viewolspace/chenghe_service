@@ -14,6 +14,7 @@ public class UserStat {
     private Integer userActive;
     private Integer userRegister;
     private Integer userIdfa;
+    private Integer browseUserNum;
     private Integer browseNum;
     private Integer copyNum;
     private Integer joinNum;
@@ -90,5 +91,13 @@ public class UserStat {
 
     public void setmTime(Date mTime) {
         this.mTime = mTime;
+    }
+
+    public Integer getBrowseUserNum() {
+        return browseUserNum;
+    }
+
+    public void setBrowseUserNum(Integer browseUserNum) {
+        this.browseUserNum = browseUserNum;
     }
 }

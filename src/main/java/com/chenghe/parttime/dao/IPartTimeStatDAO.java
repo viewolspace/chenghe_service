@@ -14,7 +14,7 @@ import com.youguu.core.util.PageHolder;
 public interface IPartTimeStatDAO {
     int addPartTimeStat(PartTimeStat partTimeStat);
 
-    int updateBrowseNum(int partTimeId,String data,int num);
+    int updateBrowseNum(int partTimeId,String data,int num,int userNum);
 
     int updateCopyNum(int partTimeId,String data,int num);
 

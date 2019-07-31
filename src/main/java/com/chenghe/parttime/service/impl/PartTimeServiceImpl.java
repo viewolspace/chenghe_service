@@ -82,8 +82,15 @@ public class PartTimeServiceImpl implements IPartTimeService {
 
     @Override
     public PartTime getAndStatPartTime(int id, int uid, String idfa) {
-        partTimeStatService.updateBrowseNum(id,1);
-        userStatService.incBrowseNum();
+        int userNum = 0;
+        if(uid > 0){
+            int result = userJoinService.addUserJoin(uid,id,3);
+            if(result>0){
+                userNum = 1;
+            }
+        }
+        partTimeStatService.updateBrowseNum(id,1,userNum);
+        userStatService.incBrowseNum(1,userNum);
         return partTimeDAO.getPartTime(id);
     }
 

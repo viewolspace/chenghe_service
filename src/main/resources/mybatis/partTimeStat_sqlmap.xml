@@ -2,7 +2,7 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="PartTimeStat">
     <sql id="selectCommon">
-		select part_time_id,stat_date,browse_num,copy_num,join_num,c_time
+		select part_time_id,stat_date,browse_num,copy_num,join_num,c_time,browse_user_num
 	</sql>
 
     <select id="findByPartTimeIdAndStatDate" parameterType="int" resultType="PartTimeStat">
@@ -17,11 +17,11 @@
 
         INSERT INTO part_time.part_time_stat
         (
-        part_time_id,stat_date,browse_num,copy_num,join_num,c_time
+        part_time_id,stat_date,browse_num,copy_num,join_num,c_time,browse_user_num
         )
         VALUES
         (
-        #{partTimeId}, #{statDate}, #{browseNum}, #{copyNum}, #{joinNum}, #{cTime}
+        #{partTimeId}, #{statDate}, #{browseNum}, #{copyNum}, #{joinNum}, #{cTime},#{browseUserNum}
         )
     </insert>
 
@@ -36,6 +36,9 @@
             </if>
             <if test="joinNum != null  and joinNum != 0">
                 join_num = join_num+#{joinNum},
+            </if>
+            <if test="browseUserNum != null  and browseUserNum != 0">
+                browse_user_num = browse_user_num+#{browseUserNum},
             </if>
         </set>
         WHERE

@@ -41,11 +41,12 @@ public class PartTimeStatDAOImpl extends BaseDAO<PartTimeStat> implements IPartT
     }
 
     @Override
-    public int updateBrowseNum(int partTimeId, String data,int num) {
+    public int updateBrowseNum(int partTimeId, String data,int num,int userNum) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("partTimeId", partTimeId);
         hashMap.put("statDate", data);
         hashMap.put("browseNum", num);
+        hashMap.put("browseUserNum", userNum);
         return super.updateBy("updateNum",hashMap);
     }
 

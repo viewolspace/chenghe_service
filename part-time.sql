@@ -212,3 +212,13 @@ alter table `part_time`.`user`
 
 alter table `part_time`.`part_time`
    add column `pic` varchar(200) NULL COMMENT '兼职的宣传图片 , 宽图' after `m_time`
+
+#2019-07-31
+alter table `part_time`.`part_time_stat`
+   add column `browse_user_num` int(11) NULL COMMENT '浏览人数' after `stat_date`,
+   change `browse_num` `browse_num` int(11) NOT NULL comment '浏览次数';
+
+
+alter table `part_time`.`user_stat`
+   add column `browse_user_num` int(11) NOT NULL COMMENT '总浏览人数' after `user_idfa`,
+   change `browse_num` `browse_num` int(11) NOT NULL comment '总浏览次数';
