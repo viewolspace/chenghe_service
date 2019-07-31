@@ -4,6 +4,7 @@ import com.chenghe.parttime.dao.IPartTimeStatDAO;
 import com.chenghe.parttime.pojo.PartTimeStat;
 import com.chenghe.parttime.query.PartTimeStatQuery;
 import com.chenghe.parttime.service.IPartTimeStatService;
+import com.chenghe.parttime.util.LruCache;
 import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,9 @@ import java.util.Date;
 @Service("partTimeStatService")
 public class PartTimeStatServiceImpl implements IPartTimeStatService {
 
-    private String statDate;
+
+    private LruCache<Integer,String> lruCache = new LruCache<Integer,String>(1000);
+
 
     @Resource
     private IPartTimeStatDAO partTimeStatDAO;
@@ -46,10 +49,12 @@ public class PartTimeStatServiceImpl implements IPartTimeStatService {
 
 
     private void dateDecide(int partTimeId) throws Exception{
+        String statDate = lruCache.get(partTimeId);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String nowDate = sdf.format(new Date());
         if(statDate==null || !nowDate.equals(statDate)){
             synchronized (this){
+                statDate = lruCache.get(partTimeId);
                 if(statDate==null || !nowDate.equals(statDate)){
                     PartTimeStat partTimeStat =  partTimeStatDAO.findByPartTimeIdAndStatDate(partTimeId, nowDate);
                     if(partTimeStat==null){
@@ -62,7 +67,7 @@ public class PartTimeStatServiceImpl implements IPartTimeStatService {
                         partTimeStat.setStatDate(sdf.parse(nowDate));
                         partTimeStatDAO.addPartTimeStat(partTimeStat);
                     }
-                    statDate = nowDate;
+                    lruCache.put(partTimeId,nowDate);
                 }
 
             }
@@ -73,7 +78,7 @@ public class PartTimeStatServiceImpl implements IPartTimeStatService {
     public int updateBrowseNum(int partTimeId, int num) {
         try{
             this.dateDecide(partTimeId);
-            return partTimeStatDAO.updateBrowseNum(partTimeId, statDate, num);
+            return partTimeStatDAO.updateBrowseNum(partTimeId, lruCache.get(partTimeId), num);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -85,7 +90,7 @@ public class PartTimeStatServiceImpl implements IPartTimeStatService {
     public int updateCopyNum(int partTimeId, int num) {
         try{
             this.dateDecide(partTimeId);
-            return partTimeStatDAO.updateCopyNum(partTimeId, statDate, num);
+            return partTimeStatDAO.updateCopyNum(partTimeId, lruCache.get(partTimeId), num);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -97,7 +102,7 @@ public class PartTimeStatServiceImpl implements IPartTimeStatService {
     public int updateJoinNum(int partTimeId,  int num) {
         try{
             this.dateDecide(partTimeId);
-            return partTimeStatDAO.updateJoinNum(partTimeId, statDate, num);
+            return partTimeStatDAO.updateJoinNum(partTimeId, lruCache.get(partTimeId), num);
         }catch (Exception e){
             e.printStackTrace();
         }
