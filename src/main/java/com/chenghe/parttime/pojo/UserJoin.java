@@ -20,6 +20,7 @@ public class UserJoin {
     private String nickName;    //昵称
     private String realName;    //姓名
     private String title;       //职位标题
+    private String phone;       //手机号
 
     public Integer getUserId() {
         return userId;
@@ -83,5 +84,13 @@ public class UserJoin {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
