@@ -99,15 +99,15 @@ public class QingSmsServiceImpl implements ISmsService {
         String host = "https://feginesms.market.alicloudapi.com/codeNotice";
         String path = "/codeNotice";
         String method = "GET";
-        String appcode = "b1569a310a8c42afb4a62fc71f8341e9";
+        String appcode = "47293f8b849744a3ac0dbd30e89e00cb";
         Map<String, String> headers = new HashMap<String, String>();
         //最后在header中的格式(中间是英文空格)为Authorization:APPCODE 83359fd73fe94948385f570e3c139105
         headers.put("Authorization", "APPCODE " + appcode);
         Map<String, String> querys = new HashMap<String, String>();
         querys.put("param", rand);
         querys.put("phone", phone);
-        querys.put("sign", "51806");
-        querys.put("skin", "100001");
+        querys.put("sign", "158304");
+        querys.put("skin", "88913");
         //JDK 1.8示例代码请在这里下载：  http://code.fegine.com/Tools.zip
 
         try {
