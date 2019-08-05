@@ -38,6 +38,7 @@ public class PartTime {
     private Date mTime;
 
     private String pic;
+    private Integer verify;
 
     public Integer getId() {
         return id;
@@ -237,5 +238,13 @@ public class PartTime {
 
     public void setPic(String pic) {
         this.pic = ImageUtils.diffUrlImage(pic);
+    }
+
+    public Integer getVerify() {
+        return verify;
+    }
+
+    public void setVerify(Integer verify) {
+        this.verify = verify;
     }
 }

@@ -222,3 +222,7 @@ alter table `part_time`.`part_time_stat`
 alter table `part_time`.`user_stat`
    add column `browse_user_num` int(11) NOT NULL COMMENT '总浏览人数' after `user_idfa`,
    change `browse_num` `browse_num` int(11) NOT NULL comment '总浏览次数';
+
+# 2019-8-5 增加
+alter table `part_time`.`part_time`
+   add column `verify` int(8) DEFAULT '0' NULL COMMENT '0 未认证  1 已认证' after `pic`

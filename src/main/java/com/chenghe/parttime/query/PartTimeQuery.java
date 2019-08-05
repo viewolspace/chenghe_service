@@ -11,6 +11,8 @@ public class PartTimeQuery {
 
     private Integer recommend;
 
+    private Integer verify;
+
     private int pageIndex = 1;
 
     private int pageSize = 20;
@@ -41,6 +43,10 @@ public class PartTimeQuery {
             map.put("recommend", recommend);
         }
 
+        if(verify != null){
+            map.put("verify", verify);
+        }
+
         return map;
     }
 
@@ -58,5 +64,13 @@ public class PartTimeQuery {
 
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
+    }
+
+    public Integer getVerify() {
+        return verify;
+    }
+
+    public void setVerify(Integer verify) {
+        this.verify = verify;
     }
 }
