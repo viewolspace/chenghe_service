@@ -102,7 +102,7 @@
 
         from part_time.part_time where recommend = #{recommend} and status = 0 and now() BETWEEN s_time and e_time
 
-        ORDER by top_num desc , id desc
+        ORDER by top_num  , id desc
 
     </select>
 
@@ -161,7 +161,7 @@
 
         </where>
 
-        ORDER by top_num desc , id desc
+        ORDER by top_num  , id desc
 
     </select>
 
@@ -172,7 +172,7 @@
 
         from part_time.part_time where category_id=#{categoryId} and status = 0 and now() BETWEEN s_time and e_time
 
-        ORDER by top_num desc , id desc
+        ORDER by top_num  , id desc
 
     </select>
 
