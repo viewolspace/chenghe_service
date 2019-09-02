@@ -54,6 +54,9 @@
             <if test="partTimeId != null and partTimeId != '' ">
                 AND a.part_time_id = #{partTimeId}
             </if>
+            <if test="type != null and type != '' ">
+                AND a.type = #{type}
+            </if>
             <if test="companyId != null and companyId != 0 ">
                 AND c.company_id = #{companyId}
             </if>
