@@ -36,6 +36,7 @@ public class PartTime {
     private Integer joinNum;    //参与人数
     private Date cTime;
     private Date mTime;
+    private String ext;
 
     private String pic;
     private Integer verify;
@@ -246,5 +247,13 @@ public class PartTime {
 
     public void setVerify(Integer verify) {
         this.verify = verify;
+    }
+
+    public String getExt() {
+        return ext;
+    }
+
+    public void setExt(String ext) {
+        this.ext = ext;
     }
 }

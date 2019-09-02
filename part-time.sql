@@ -226,3 +226,7 @@ alter table `part_time`.`user_stat`
 # 2019-8-5 增加
 alter table `part_time`.`part_time`
    add column `verify` int(8) DEFAULT '0' NULL COMMENT '0 未认证  1 已认证' after `pic`
+
+#2019-09-02 增加
+alter table `part_time`.`part_time`
+   add column `ext` varchar(2000) NULL COMMENT '扩展多个联系方式 {contact_type:1,contact:123}' after `verify`;
