@@ -36,7 +36,7 @@ public class PartTime {
     private Integer joinNum;    //参与人数
     private Date cTime;
     private Date mTime;
-    private String ext;
+    private String ext; //格式参见Contact.class
 
     private String pic;
     private Integer verify;
