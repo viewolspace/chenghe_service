@@ -13,6 +13,8 @@ public class PartTimeQuery {
 
     private Integer verify;
 
+    private Integer companyId;  //商户id
+
     private int pageIndex = 1;
 
     private int pageSize = 20;
@@ -46,6 +48,9 @@ public class PartTimeQuery {
         if(verify != null){
             map.put("verify", verify);
         }
+        if (companyId != null) {
+            map.put("companyId", companyId);
+        }
 
         return map;
     }
@@ -72,5 +77,13 @@ public class PartTimeQuery {
 
     public void setVerify(Integer verify) {
         this.verify = verify;
+    }
+
+    public Integer getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
     }
 }

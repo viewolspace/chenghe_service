@@ -10,6 +10,7 @@ public class UserJoinQuery {
     private Integer userId;
     private Integer partTimeId;
     private Integer type;
+    private Integer companyId;  //商户id
 
     private int pageIndex = 1;
 
@@ -50,6 +51,9 @@ public class UserJoinQuery {
         if (type != null) {
             map.put("type", type);
         }
+        if (companyId != null) {
+            map.put("companyId", companyId);
+        }
         return map;
     }
 
@@ -69,5 +73,11 @@ public class UserJoinQuery {
         this.pageSize = pageSize;
     }
 
+    public Integer getCompanyId() {
+        return companyId;
+    }
 
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
+    }
 }

@@ -5,6 +5,10 @@
 		select user_id,part_time_id,type,c_time,m_time
 	</sql>
 
+    <sql id="selectCommon1">
+        select a.user_id,a.part_time_id,a.type,a.c_time,a.m_time
+    </sql>
+
     <select id="findByUserIdAndPartTimeId" parameterType="map" resultType="UserJoin">
         <include refid="selectCommon"/>
         from part_time.user_join a where user_id = #{userId} and part_time_id = #{partTimeId} and type=#{type}
@@ -41,13 +45,17 @@
 	</sql>
 
     <sql id="sql_where">
-        FROM part_time.user_join a
+        FROM part_time.user_join a , part_time.part_time c
         <where>
+            a.part_time_id=c.id
             <if test="userId != null and userId != '' ">
                 AND a.user_id = #{userId}
             </if>
             <if test="partTimeId != null and partTimeId != '' ">
                 AND a.part_time_id = #{partTimeId}
+            </if>
+            <if test="companyId != null and companyId != 0 ">
+                AND c.company_id = #{companyId}
             </if>
         </where>
     </sql>
@@ -63,6 +71,9 @@
             </if>
             <if test="type != null and type != '' ">
                 AND a.type = #{type}
+            </if>
+            <if test="companyId != null and companyId != 0 ">
+                AND c.company_id = #{companyId}
             </if>
         </where>
     </sql>
