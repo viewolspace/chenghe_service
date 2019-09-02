@@ -15,6 +15,8 @@ public class PartTimeStatQuery {
 
     private int pageSize = 20;
 
+    private Integer companyId;
+
     public Integer getPartTimeId() {
         return partTimeId;
     }
@@ -39,6 +41,9 @@ public class PartTimeStatQuery {
         if (statDate != null) {
             map.put("statDate", statDate);
         }
+        if (companyId != null) {
+            map.put("companyId", companyId);
+        }
         return map;
     }
 
@@ -56,5 +61,13 @@ public class PartTimeStatQuery {
 
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
+    }
+
+    public Integer getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
     }
 }
