@@ -21,6 +21,7 @@ public class Ad {
     private Date cTime;         //创建时间
     private Date mTime;         //修改时间
     private String title;
+    private int companyId;
 
     private String categoryName;  //广告分类名称，管理后台显示用
 
@@ -102,5 +103,13 @@ public class Ad {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public int getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(int companyId) {
+        this.companyId = companyId;
     }
 }

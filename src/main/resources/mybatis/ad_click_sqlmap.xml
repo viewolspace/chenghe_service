@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AdClick">
+    <sql id="selectCommon">
+		select user_id,ad_id,type,c_time
+	</sql>
+
+    <select id="findByUserIdAndAdId" parameterType="map" resultType="AdClick">
+        <include refid="selectCommon"/>
+        from part_time.ad_click a where user_id = #{userId} and ad_id = #{adId} and type=#{type}
+    </select>
+
+
+    <insert id="insert" parameterType="UserJoin" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+
+        INSERT INTO part_time.ad_click
+        (
+        user_id,ad_id,type,c_time
+        )
+        VALUES
+        (
+        #{userId}, #{adId}, #{type}, #{cTime}
+        )
+
+    </insert>
+
+
+</mapper>

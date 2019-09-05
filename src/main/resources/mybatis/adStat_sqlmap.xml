@@ -1,36 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="PartTimeStat">
+<mapper namespace="AdStat">
     <sql id="selectCommon">
-		select part_time_id,stat_date,browse_num,copy_num,join_num,c_time,browse_user_num
+		select ad_id,stat_date,browse_num,copy_num,join_num,c_time,browse_user_num,title,company_id
 	</sql>
 
     <sql id="selectCommon1">
         select a.part_time_id,a.stat_date,a.browse_num,a.copy_num,a.join_num,a.c_time,a.browse_user_num
     </sql>
 
-    <select id="findByPartTimeIdAndStatDate" parameterType="int" resultType="PartTimeStat">
+    <select id="findByAdIdAndStatDate" parameterType="int" resultType="AdStat">
         <include refid="selectCommon"/>
-        from part_time.part_time_stat a where part_time_id = #{adId} and stat_date=#{statDate}
+        from part_time.ad_stat a where ad_id = #{adId} and stat_date=#{statDate}
     </select>
 
-    <insert id="insert" parameterType="PartTimeStat" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-        <selectKey keyProperty="id" resultType="int" order="AFTER">
-            SELECT LAST_INSERT_ID()
-        </selectKey>
+    <insert id="insert" parameterType="AdStat" >
 
-        INSERT INTO part_time.part_time_stat
+
+        INSERT INTO part_time.ad_stat
         (
-        part_time_id,stat_date,browse_num,copy_num,join_num,c_time,browse_user_num
+        ad_id,stat_date,browse_num,copy_num,join_num,c_time,browse_user_num,title,company_id
         )
         VALUES
         (
-        #{adId}, #{statDate}, #{browseNum}, #{copyNum}, #{joinNum}, #{cTime},#{browseUserNum}
+        #{adId}, #{statDate}, #{browseNum}, #{copyNum}, #{joinNum}, #{cTime},#{browseUserNum},#{title},#{companyId}
         )
     </insert>
 
     <update id="updateNum" parameterType="map">
-        UPDATE part_time.part_time_stat
+        UPDATE part_time.ad_stat
         <set>
             <if test="browseNum != null  and browseNum != 0">
                 browse_num = browse_num+#{browseNum},
@@ -46,7 +44,7 @@
             </if>
         </set>
         WHERE
-        part_time_id = #{adId} and stat_date = #{statDate}
+        ad_id = #{adId} and stat_date = #{statDate}
     </update>
 
     <sql id="sql_count">
@@ -54,17 +52,16 @@
 	</sql>
 
     <sql id="sql_where">
-        FROM part_time.part_time_stat a , part_time.part_time b
+        FROM part_time.part_time_stat a
         <where>
-            a.part_time_id=b.id
             <if test="adId != null and adId != '' ">
-                AND a.part_time_id = #{adId}
+                AND a.ad_id = #{adId}
             </if>
             <if test="statDate != null and statDate != '' ">
                 AND a.stat_date = #{statDate}
             </if>
             <if test="companyId != null and companyId != 0 ">
-                AND b.company_id = #{companyId}
+                AND a.company_id = #{companyId}
             </if>
         </where>
     </sql>
@@ -77,7 +74,7 @@
         <include refid="sql_count"/>
         <include refid="sql_where"/>
     </select>
-    <select id="findByParams" parameterType="java.util.HashMap" resultType="PartTimeStat">
+    <select id="findByParams" parameterType="java.util.HashMap" resultType="AdStat">
         <include refid="selectCommon1"/>
         <include refid="sql_where"/>
         <include refid="sql_order"/>

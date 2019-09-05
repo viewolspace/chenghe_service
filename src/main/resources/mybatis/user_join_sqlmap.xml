@@ -11,7 +11,7 @@
 
     <select id="findByUserIdAndPartTimeId" parameterType="map" resultType="UserJoin">
         <include refid="selectCommon"/>
-        from part_time.user_join a where user_id = #{userId} and part_time_id = #{partTimeId} and type=#{type}
+        from part_time.user_join a where user_id = #{userId} and part_time_id = #{adId} and type=#{type}
     </select>
 
     <insert id="insert" parameterType="UserJoin" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
@@ -25,7 +25,7 @@
         )
         VALUES
         (
-        #{userId}, #{partTimeId}, #{type}, #{cTime}
+        #{userId}, #{adId}, #{type}, #{cTime}
         )
 
     </insert>
@@ -36,7 +36,7 @@
         SET
             type = #{type}, m_time = #{mTime}
         WHERE
-			user_id = #{userId} and part_time_id=#{partTimeId}
+			user_id = #{userId} and part_time_id=#{adId}
 	</update>
 
 
@@ -51,8 +51,8 @@
             <if test="userId != null and userId != '' ">
                 AND a.user_id = #{userId}
             </if>
-            <if test="partTimeId != null and partTimeId != '' ">
-                AND a.part_time_id = #{partTimeId}
+            <if test="adId != null and adId != '' ">
+                AND a.part_time_id = #{adId}
             </if>
             <if test="type != null and type != '' ">
                 AND a.type = #{type}
@@ -69,8 +69,8 @@
             <if test="userId != null and userId != '' ">
                 AND a.user_id = #{userId}
             </if>
-            <if test="partTimeId != null and partTimeId != '' ">
-                AND a.part_time_id = #{partTimeId}
+            <if test="adId != null and adId != '' ">
+                AND a.part_time_id = #{adId}
             </if>
             <if test="type != null and type != '' ">
                 AND a.type = #{type}

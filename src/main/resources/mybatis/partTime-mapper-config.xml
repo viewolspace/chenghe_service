@@ -24,6 +24,8 @@
         <typeAlias alias="UserJoin" type="com.chenghe.parttime.pojo.UserJoin"/>
         <typeAlias alias="UserStat" type="com.chenghe.parttime.pojo.UserStat"/>
         <typeAlias alias="Idfa" type="com.chenghe.parttime.pojo.Idfa"/>
+        <typeAlias alias="AdClick" type="com.chenghe.parttime.pojo.AdClick"/>
+        <typeAlias alias="AdStat" type="com.chenghe.parttime.pojo.AdStat"/>
 
     </typeAliases>
 
@@ -43,6 +45,8 @@
         <mapper resource="mybatis/user_join_sqlmap.xml"/>
         <mapper resource="mybatis/userStat_sqlmap.xml"/>
         <mapper resource="mybatis/idfa_sqlmap.xml"/>
+        <mapper resource="mybatis/ad_click_sqlmap.xml"/>
+        <mapper resource="mybatis/adStat_sqlmap.xml"/>
     </mappers>
 
 </configuration>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Ad">
     <sql id="selectCommon">
-		select id,category_id,image_url,url,num,status,c_time,m_time,title
+		select id,category_id,image_url,url,num,status,c_time,m_time,title,company_id
 	</sql>
 
     <select id="select" parameterType="int" resultType="Ad">
@@ -17,11 +17,11 @@
 
         INSERT INTO part_time.ad
         (
-        category_id,image_url,url,num,status,c_time,title
+        category_id,image_url,url,num,status,c_time,title,company_id
         )
         VALUES
         (
-        #{categoryId}, #{imageUrl}, #{url}, #{num}, #{status}, #{cTime},#{title}
+        #{categoryId}, #{imageUrl}, #{url}, #{num}, #{status}, #{cTime},#{title},#{companyId}
         )
     </insert>
 
@@ -34,7 +34,8 @@
 			num = #{num} ,
 			status = #{status} ,
 			m_time = #{mTime},
-			title = #{title}
+			title = #{title},
+			company_id=#{companyId}
 			WHERE
 			id = #{id}
 	</update>

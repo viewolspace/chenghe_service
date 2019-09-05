@@ -230,3 +230,31 @@ alter table `part_time`.`part_time`
 #2019-09-02 增加
 alter table `part_time`.`part_time`
    add column `ext` varchar(2000) NULL COMMENT '扩展多个联系方式 {contact_type:1,contact:123}' after `verify`;
+
+
+#2019-09-05 添加
+ALTER TABLE `part_time`.`ad`
+   ADD COLUMN `company_id` INT(11) DEFAULT '0' NOT NULL COMMENT '广告主' AFTER `title`;
+
+CREATE TABLE `ad_click`  (
+  `user_id` int(11) NOT NULL,
+  `ad_id` int(11) NOT NULL DEFAULT 0 COMMENT '兼职id',
+  `type` int(11) NOT NULL COMMENT '1 点击',
+  `c_time` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`user_id`, `ad_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '广告点击表' ROW_FORMAT = Compact;
+
+
+
+CREATE TABLE `ad_stat` (
+  `ad_id` int(11) NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '广告名称',
+  `company_id` int(11) NOT NULL COMMENT '商户id',
+  `stat_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `browse_user_num` int(11) DEFAULT NULL COMMENT '浏览人数',
+  `browse_num` int(11) NOT NULL COMMENT '浏览次数',
+  `copy_num` int(11) NOT NULL COMMENT '复制人数',
+  `join_num` int(11) NOT NULL COMMENT '参与人数',
+  `c_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`stat_date`,`ad_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='广告统计'
