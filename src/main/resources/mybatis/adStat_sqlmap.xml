@@ -5,10 +5,6 @@
 		select ad_id,stat_date,browse_num,copy_num,join_num,c_time,browse_user_num,title,company_id
 	</sql>
 
-    <sql id="selectCommon1">
-        select a.part_time_id,a.stat_date,a.browse_num,a.copy_num,a.join_num,a.c_time,a.browse_user_num
-    </sql>
-
     <select id="findByAdIdAndStatDate" parameterType="int" resultType="AdStat">
         <include refid="selectCommon"/>
         from part_time.ad_stat a where ad_id = #{adId} and stat_date=#{statDate}
@@ -52,7 +48,7 @@
 	</sql>
 
     <sql id="sql_where">
-        FROM part_time.part_time_stat a
+        FROM part_time.ad_stat a
         <where>
             <if test="adId != null and adId != '' ">
                 AND a.ad_id = #{adId}
@@ -75,7 +71,7 @@
         <include refid="sql_where"/>
     </select>
     <select id="findByParams" parameterType="java.util.HashMap" resultType="AdStat">
-        <include refid="selectCommon1"/>
+        <include refid="selectCommon"/>
         <include refid="sql_where"/>
         <include refid="sql_order"/>
     </select>

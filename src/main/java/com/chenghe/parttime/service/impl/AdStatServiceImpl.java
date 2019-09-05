@@ -44,7 +44,7 @@ public class AdStatServiceImpl implements IAdStatService{
     }
 
     @Override
-    public PageHolder<AdStat> queryPartTimeStat(AdStatQuery query) {
+    public PageHolder<AdStat> queryAdStatStat(AdStatQuery query) {
         return adStatDAO.queryAdStat(query);
     }
 

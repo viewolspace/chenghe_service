@@ -17,7 +17,7 @@ public interface IAdStatService {
 
     AdStat findByAdIdAndStatDate(int adId, String statDate);
 
-    PageHolder<AdStat> queryPartTimeStat(AdStatQuery query);
+    PageHolder<AdStat> queryAdStatStat(AdStatQuery query);
 
     int updateBrowseNum(int adId, int num, int userNum);
 
