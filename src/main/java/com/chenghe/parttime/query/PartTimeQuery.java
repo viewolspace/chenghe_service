@@ -13,7 +13,7 @@ public class PartTimeQuery {
 
     private Integer verify;
 
-    private Integer companyId;  //商户id
+    private String companyId;  //商户id
 
     private int pageIndex = 1;
 
@@ -79,11 +79,11 @@ public class PartTimeQuery {
         this.verify = verify;
     }
 
-    public Integer getCompanyId() {
+    public String getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(Integer companyId) {
+    public void setCompanyId(String companyId) {
         this.companyId = companyId;
     }
 }

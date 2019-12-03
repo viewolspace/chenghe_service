@@ -15,7 +15,7 @@ public class PartTimeStatQuery {
 
     private int pageSize = 20;
 
-    private Integer companyId;
+    private String companyId;
 
     public Integer getPartTimeId() {
         return partTimeId;
@@ -63,11 +63,11 @@ public class PartTimeStatQuery {
         this.pageSize = pageSize;
     }
 
-    public Integer getCompanyId() {
+    public String getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(Integer companyId) {
+    public void setCompanyId(String companyId) {
         this.companyId = companyId;
     }
 }

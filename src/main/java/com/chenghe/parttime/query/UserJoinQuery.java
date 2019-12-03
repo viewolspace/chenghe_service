@@ -10,7 +10,7 @@ public class UserJoinQuery {
     private Integer userId;
     private Integer partTimeId;
     private Integer type;
-    private Integer companyId;  //商户id
+    private String companyId;  //商户id
 
     private int pageIndex = 1;
 
@@ -73,11 +73,11 @@ public class UserJoinQuery {
         this.pageSize = pageSize;
     }
 
-    public Integer getCompanyId() {
+    public String getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(Integer companyId) {
+    public void setCompanyId(String companyId) {
         this.companyId = companyId;
     }
 }
