@@ -57,7 +57,7 @@
             <if test="type != null and type != '' ">
                 AND a.type = #{type}
             </if>
-            <if test="companyId != null ">
+            <if test="companyId != null and companyId != '' ">
                 AND c.company_id in (${companyId})
             </if>
         </where>
@@ -75,7 +75,7 @@
             <if test="type != null and type != '' ">
                 AND a.type = #{type}
             </if>
-            <if test="companyId != null">
+            <if test="companyId != null and companyId != '' ">
                 AND c.company_id in (${companyId})
             </if>
         </where>

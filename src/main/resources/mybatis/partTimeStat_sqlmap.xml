@@ -63,7 +63,7 @@
             <if test="statDate != null and statDate != '' ">
                 AND a.stat_date = #{statDate}
             </if>
-            <if test="companyId != null">
+            <if test="companyId != null and companyId != ''">
                 AND b.company_id in (${companyId})
             </if>
         </where>

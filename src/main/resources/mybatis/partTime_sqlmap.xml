@@ -193,7 +193,7 @@
             <if test="recommend != null">
                 AND recommend = #{recommend}
             </if>
-            <if test="companyId != null">
+            <if test="companyId != null and companyId != '' ">
                 AND a.company_id in (${companyId})
             </if>
         </where>
