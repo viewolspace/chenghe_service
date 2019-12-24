@@ -168,6 +168,31 @@
 
     </select>
 
+    <select id="listAllByApp" parameterType="map" resultType="PartTime">
+
+        <include refid="selectCommon"/>
+
+        from part_time.part_time
+
+        <where>
+
+            status = 0 and now() BETWEEN s_time and e_time
+
+
+            <if test="title != null and title != '' ">
+                AND title LIKE concat(concat('%',#{title}),'%')
+            </if>
+
+            <if test="recommend != null and recommend != '' ">
+                AND recommend in (${recommend})
+            </if>
+
+        </where>
+
+        ORDER by top_num  , id desc
+
+    </select>
+
 
     <select id="listByCategory" parameterType="map" resultType="PartTime">
 

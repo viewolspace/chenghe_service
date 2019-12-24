@@ -58,6 +58,14 @@ public interface IPartTimeService {
      */
     List<PartTime> listAll(String title,int pageIndex,int pageSize);
 
+    /**
+     * 查询全部 或者 搜索
+     * @param title
+     * @param pageIndex
+     * @param pageSize
+     * @return
+     */
+    List<PartTime> listAll(String title,String recommend,int pageIndex, int pageSize);
 
     /**
      * 查询分类下数据
