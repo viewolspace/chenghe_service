@@ -10,4 +10,11 @@ public interface ISmsService {
      * @return
      */
     int sendRand(String phone,String rand);
+
+    /**
+     * 发送验证码
+     * @param rand
+     * @return
+     */
+    int sendRand(String phone,String rand ,String sign , String skin);
 }

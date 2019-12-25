@@ -93,8 +93,9 @@ public class QingSmsServiceImpl implements ISmsService {
         return res;
     }
 
+
     @Override
-    public int sendRand(String phone,String rand) {
+    public int sendRand(String phone, String rand, String sign, String skin) {
 
         String host = "https://feginesms.market.alicloudapi.com/codeNotice";
         String path = "/codeNotice";
@@ -106,8 +107,8 @@ public class QingSmsServiceImpl implements ISmsService {
         Map<String, String> querys = new HashMap<String, String>();
         querys.put("param", rand);
         querys.put("phone", phone);
-        querys.put("sign", "158304");
-        querys.put("skin", "88913");
+        querys.put("sign", sign);
+        querys.put("skin", skin);
         //JDK 1.8示例代码请在这里下载：  http://code.fegine.com/Tools.zip
 
         try {
@@ -146,6 +147,69 @@ public class QingSmsServiceImpl implements ISmsService {
         }
 
         return 0;
+    }
+
+    /**
+     *  querys.put("sign", "158304");
+        querys.put("skin", "88913");
+     * @param phone
+     * @param rand
+     * @return
+     */
+    @Override
+    public int sendRand(String phone,String rand) {
+        return this.sendRand(phone,rand,"158304","88913");
+
+//        String host = "https://feginesms.market.alicloudapi.com/codeNotice";
+//        String path = "/codeNotice";
+//        String method = "GET";
+//        String appcode = "47293f8b849744a3ac0dbd30e89e00cb";
+//        Map<String, String> headers = new HashMap<String, String>();
+//        //最后在header中的格式(中间是英文空格)为Authorization:APPCODE 83359fd73fe94948385f570e3c139105
+//        headers.put("Authorization", "APPCODE " + appcode);
+//        Map<String, String> querys = new HashMap<String, String>();
+//        querys.put("param", rand);
+//        querys.put("phone", phone);
+//        querys.put("sign", "158304");
+//        querys.put("skin", "88913");
+//        //JDK 1.8示例代码请在这里下载：  http://code.fegine.com/Tools.zip
+//
+//        try {
+//            /**
+//             * 重要提示如下:
+//             * HttpUtils请从
+//             * https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/src/main/java/com/aliyun/api/gateway/demo/util/HttpUtils.java
+//             * 或者直接下载：
+//             * http://code.fegine.com/HttpUtils.zip
+//             * 下载
+//             *
+//             * 相应的依赖请参照
+//             * https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/pom.xml
+//             * 相关jar包（非pom）直接下载：
+//             * http://code.fegine.com/aliyun-jar.zip
+//             *Response [code=0000, msg=ok, t={"Message":"手机号码错误！","Code":"101","RequestId":"","BizId":""}]
+//             * Response [code=0000, msg=ok, t={"Message":"OK","RequestId":"20764A63-8012-4DEB-8F1C-0F9BAB58D502","BizId":"576505734212865015^0","Code":"OK"}]
+//             */
+//
+//            Response<String> response = sendGet(host, headers, querys, "UTF-8");
+//            System.out.println(response.toString());
+//
+//            if("0000".equals(response.getCode())){
+//                JSONObject json = JSON.parseObject(response.getT()) ;
+//                String code = json.getString("Code");
+//                if("OK".equals(code)){
+//                    return 1;
+//                }else{
+//                    log.error("sms_err:" + code);
+//                }
+//            }
+//            //获取response的body
+////            System.out.println(EntityUtils.toString(response.getEntity()));
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        return 0;
     }
 
     public static void main(String[] args) {
