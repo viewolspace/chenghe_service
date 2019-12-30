@@ -85,4 +85,12 @@ public class PartTimeStatQuery {
     public void setCompanyId(String companyId) {
         this.companyId = companyId;
     }
+
+    public Integer getApp() {
+        return app;
+    }
+
+    public void setApp(Integer app) {
+        this.app = app;
+    }
 }
