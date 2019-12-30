@@ -12,6 +12,9 @@ import java.util.Date;
  * @review:
  */
 public class PartTime {
+    public static String RECOMMEND_JZQ = "1,2,3"; //兼职圈的
+    public static String RECOMMEND_TDJZ = "4,5,6";//土豆兼职
+    public static String RECOMMEND_CHJZ = "7,8,9";//彩虹兼职
     private Integer id;
     private Integer companyId;  //商户id
     private Integer recommend;  //1 推荐 0 正常

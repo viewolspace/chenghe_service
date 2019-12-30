@@ -66,6 +66,9 @@
             <if test="companyId != null and companyId != ''">
                 AND b.company_id in (${companyId})
             </if>
+            <if test="recommend != null and recommend != '' ">
+                AND b.recommend in (${recommend})
+            </if>
         </where>
     </sql>
 

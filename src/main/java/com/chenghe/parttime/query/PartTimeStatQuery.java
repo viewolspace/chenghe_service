@@ -1,5 +1,7 @@
 package com.chenghe.parttime.query;
 
+import com.chenghe.parttime.pojo.PartTime;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +18,8 @@ public class PartTimeStatQuery {
     private int pageSize = 20;
 
     private String companyId;
+
+    private Integer app; // 1 兼职圈  2 土豆兼职 3 彩虹兼职
 
     public Integer getPartTimeId() {
         return partTimeId;
@@ -43,6 +47,17 @@ public class PartTimeStatQuery {
         }
         if (companyId != null) {
             map.put("companyId", companyId);
+        }
+
+        if (app!=null && app!=0){
+            if(app==1){
+                map.put("recommend", PartTime.RECOMMEND_JZQ);
+            }else if(app==2){
+                map.put("recommend", PartTime.RECOMMEND_JZQ);
+            }else  if(app==3){
+                map.put("recommend", PartTime.RECOMMEND_JZQ);
+            }
+
         }
         return map;
     }
