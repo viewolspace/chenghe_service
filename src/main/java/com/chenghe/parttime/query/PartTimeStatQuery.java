@@ -53,9 +53,9 @@ public class PartTimeStatQuery {
             if(app==1){
                 map.put("recommend", PartTime.RECOMMEND_JZQ);
             }else if(app==2){
-                map.put("recommend", PartTime.RECOMMEND_JZQ);
+                map.put("recommend", PartTime.RECOMMEND_TDJZ);
             }else  if(app==3){
-                map.put("recommend", PartTime.RECOMMEND_JZQ);
+                map.put("recommend", PartTime.RECOMMEND_CHJZ);
             }
 
         }
