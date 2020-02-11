@@ -10,7 +10,8 @@
 		wx,
 		phone,
 		des,
-		star
+		star,
+		app_id
 	</sql>
 
     <select id="select" parameterType="int" resultType="Company">
@@ -31,7 +32,8 @@
         wx,
         phone,
         des,
-        star
+        star,
+        app_id
         )
         VALUES
         (
@@ -41,7 +43,8 @@
         #{wx},
         #{phone},
         #{des},
-        #{star}
+        #{star},
+        #{appId}
         )
 
     </insert>
@@ -55,7 +58,8 @@
 			wx = #{wx} ,
 			phone = #{phone} ,
 			des = #{des} ,
-			star = #{star}
+			star = #{star},
+			app_id=#{appId}
 
 			WHERE
 			id = #{id} ;
@@ -72,6 +76,9 @@
         <where>
             <if test="name != null and name != '' ">
                 AND a.name LIKE concat(concat('%',#{name}),'%')
+            </if>
+            <if test="appId != null and appId != 0 ">
+                AND a.app_id=#{appId}
             </if>
         </where>
     </sql>

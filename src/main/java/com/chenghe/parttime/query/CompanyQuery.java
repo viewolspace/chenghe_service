@@ -9,6 +9,7 @@ import java.util.Map;
 public class CompanyQuery {
     private String name;
 
+    private Integer appId;
 
     private int pageIndex = 1;
 
@@ -31,6 +32,9 @@ public class CompanyQuery {
         if(name!=null){
             map.put("name",name);
         }
+        if(appId!=null){
+            map.put("appId",appId);
+        }
         return map;
     }
 
@@ -48,5 +52,13 @@ public class CompanyQuery {
 
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
+    }
+
+    public Integer getAppId() {
+        return appId;
+    }
+
+    public void setAppId(Integer appId) {
+        this.appId = appId;
     }
 }

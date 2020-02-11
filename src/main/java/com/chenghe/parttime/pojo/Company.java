@@ -18,6 +18,7 @@ public class Company {
     private String phone;
     private String des;
     private Integer star;
+    private Integer appId;
 
     public Integer getId() {
         return id;
@@ -81,5 +82,13 @@ public class Company {
 
     public void setStar(Integer star) {
         this.star = star;
+    }
+
+    public Integer getAppId() {
+        return appId;
+    }
+
+    public void setAppId(Integer appId) {
+        this.appId = appId;
     }
 }

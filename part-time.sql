@@ -258,3 +258,8 @@ CREATE TABLE `ad_stat` (
   `c_time` datetime DEFAULT NULL,
   PRIMARY KEY (`stat_date`,`ad_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='广告统计'
+
+
+
+alter table `part_time`.`company`
+   add column `app_id` int(11) NULL after `star`
