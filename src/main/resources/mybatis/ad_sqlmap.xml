@@ -50,8 +50,8 @@
             <if test="title != null and title != '' ">
                 AND a.title LIKE concat(concat('%',#{title}),'%')
             </if>
-            <if test="categoryId != null and categoryId != '' ">
-                AND a.category_id = #{categoryId}
+            <if test="categoryId != null and categoryId != ''">
+                AND a.category_id in (${categoryId})
             </if>
             <if test="status != null and status != '' ">
                 AND a.status = #{status}

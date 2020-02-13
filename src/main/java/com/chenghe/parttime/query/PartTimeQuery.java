@@ -9,7 +9,7 @@ import java.util.Map;
 public class PartTimeQuery {
     private String title;
 
-    private Integer recommend;
+    private String recommend;
 
     private Integer verify;
 
@@ -27,11 +27,11 @@ public class PartTimeQuery {
         this.title = title;
     }
 
-    public Integer getRecommend() {
+    public String getRecommend() {
         return recommend;
     }
 
-    public void setRecommend(Integer recommend) {
+    public void setRecommend(String recommend) {
         this.recommend = recommend;
     }
 
