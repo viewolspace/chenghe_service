@@ -16,6 +16,7 @@ public class Category {
     private Integer num;
     private String name;
     private Date cTime;
+    private Integer appId;
 
     public String getId() {
         return id;
@@ -63,6 +64,14 @@ public class Category {
 
     public void setcTime(Date cTime) {
         this.cTime = cTime;
+    }
+
+    public Integer getAppId() {
+        return appId;
+    }
+
+    public void setAppId(Integer appId) {
+        this.appId = appId;
     }
 
     @Override

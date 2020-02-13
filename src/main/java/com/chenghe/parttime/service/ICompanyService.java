@@ -27,4 +27,7 @@ public interface ICompanyService {
     int delete(int id);
 
     List<Company> queryAll();
+
+    List<Company> queryCompanyByApp(int appId);
+
 }

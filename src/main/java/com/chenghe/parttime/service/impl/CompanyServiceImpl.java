@@ -54,4 +54,9 @@ public class CompanyServiceImpl implements ICompanyService {
     public List<Company> queryAll() {
         return companyDAO.queryAll();
     }
+
+    @Override
+    public List<Company> queryCompanyByApp(int appId) {
+        return companyDAO.queryCompanyByApp(appId);
+    }
 }

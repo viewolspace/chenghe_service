@@ -7,7 +7,9 @@ import com.chenghe.parttime.query.CompanyQuery;
 import com.youguu.core.util.PageHolder;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * describe:
@@ -35,7 +37,7 @@ public class CompanyDAOImpl extends BaseDAO<Company> implements ICompanyDAO {
 
     @Override
     public PageHolder<Company> queryCompany(CompanyQuery query) {
-        return super.pagedQuery("findByParams",query.getMap(),query.getPageIndex(),query.getPageSize());
+        return super.pagedQuery("findByParams", query.getMap(), query.getPageIndex(), query.getPageSize());
     }
 
     @Override
@@ -46,5 +48,12 @@ public class CompanyDAOImpl extends BaseDAO<Company> implements ICompanyDAO {
     @Override
     public List<Company> queryAll() {
         return super.getAll();
+    }
+
+    @Override
+    public List<Company> queryCompanyByApp(int appId) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("appId", appId);
+        return super.findBy("queryCompanyByApp", map);
     }
 }

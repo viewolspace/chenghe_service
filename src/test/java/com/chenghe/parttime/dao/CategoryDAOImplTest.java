@@ -49,7 +49,7 @@ public class CategoryDAOImplTest extends BaseTestClass {
 
     @Test
     public void listByParent(){
-        System.out.println(dao.listByParent("0001"));
+        System.out.println(dao.listByParent("0001", 1));
     }
 
     @Test

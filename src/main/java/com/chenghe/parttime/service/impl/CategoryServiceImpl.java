@@ -77,8 +77,8 @@ public class CategoryServiceImpl implements ICategoryService {
     }
 
     @Override
-    public List<Category> listByParent(String parentId) {
-        return categoryDAO.listByParent(parentId);
+    public List<Category> listByParent(String parentId, int appId) {
+        return categoryDAO.listByParent(parentId, appId);
     }
 
     @Override

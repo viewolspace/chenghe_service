@@ -105,4 +105,13 @@
         <include refid="selectCommon"/> from part_time.company a
     </select>
 
+    <select id="queryCompanyByApp" parameterType="int" resultType="Company">
+        <include refid="selectCommon"/>
+        from part_time.company a
+        <where>
+            <if test="appId != null and appId != 0 ">
+                AND a.app_id=#{appId}
+            </if>
+        </where>
+    </select>
 </mapper>

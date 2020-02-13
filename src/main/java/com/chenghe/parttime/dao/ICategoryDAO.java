@@ -29,7 +29,7 @@ public interface ICategoryDAO {
      * @param parentId
      * @return
      */
-    List<Category> listByParent(String parentId);
+    List<Category> listByParent(String parentId, int appId);
 
     /**
      * 查询所有节点
