@@ -17,6 +17,9 @@ public class AdStatQuery {
 
     private String companyId;
 
+    private String categoryId;
+
+
     public Integer getAdId() {
         return adId;
     }
@@ -44,6 +47,9 @@ public class AdStatQuery {
         if (companyId != null) {
             map.put("companyId", companyId);
         }
+        if (categoryId != null) {
+            map.put("categoryId", categoryId);
+        }
         return map;
     }
 
@@ -69,5 +75,13 @@ public class AdStatQuery {
 
     public void setCompanyId(String companyId) {
         this.companyId = companyId;
+    }
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 }
