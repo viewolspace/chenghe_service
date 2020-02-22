@@ -6,7 +6,7 @@
 	</sql>
 
     <sql id="selectCommon1">
-        select a.part_time_id,a.stat_date,a.browse_num,a.copy_num,a.join_num,a.c_time,a.browse_user_num
+        select a.part_time_id,a.stat_date,a.browse_num,a.copy_num,a.join_num,a.c_time,a.browse_user_num,b.recommend
     </sql>
 
     <select id="findByPartTimeIdAndStatDate" parameterType="int" resultType="PartTimeStat">

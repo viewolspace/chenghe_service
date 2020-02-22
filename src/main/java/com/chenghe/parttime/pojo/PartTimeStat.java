@@ -17,6 +17,11 @@ public class PartTimeStat {
     private Integer copyNum;
     private Integer joinNum;
     private Date cTime;
+    private int recommend;
+    /**
+     * 推荐位置中文描述，管理平台对该字段赋值
+     */
+    private String recommendName;
 
     public Integer getPartTimeId() {
         return partTimeId;
@@ -72,5 +77,21 @@ public class PartTimeStat {
 
     public void setBrowseUserNum(Integer browseUserNum) {
         this.browseUserNum = browseUserNum;
+    }
+
+    public int getRecommend() {
+        return recommend;
+    }
+
+    public void setRecommend(int recommend) {
+        this.recommend = recommend;
+    }
+
+    public String getRecommendName() {
+        return recommendName;
+    }
+
+    public void setRecommendName(String recommendName) {
+        this.recommendName = recommendName;
     }
 }

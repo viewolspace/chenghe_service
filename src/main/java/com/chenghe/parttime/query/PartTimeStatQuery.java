@@ -1,7 +1,5 @@
 package com.chenghe.parttime.query;
 
-import com.chenghe.parttime.pojo.PartTime;
-
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +17,7 @@ public class PartTimeStatQuery {
 
     private String companyId;
 
-    private Integer app; // 1 兼职圈  2 土豆兼职 3 彩虹兼职
+    private String recommend;
 
     public Integer getPartTimeId() {
         return partTimeId;
@@ -49,15 +47,8 @@ public class PartTimeStatQuery {
             map.put("companyId", companyId);
         }
 
-        if (app!=null && app!=0){
-            if(app==1){
-                map.put("recommend", PartTime.RECOMMEND_JZQ);
-            }else if(app==2){
-                map.put("recommend", PartTime.RECOMMEND_TDJZ);
-            }else  if(app==3){
-                map.put("recommend", PartTime.RECOMMEND_CHJZ);
-            }
-
+        if (null != recommend) {
+            map.put("recommend", recommend);
         }
         return map;
     }
@@ -86,11 +77,11 @@ public class PartTimeStatQuery {
         this.companyId = companyId;
     }
 
-    public Integer getApp() {
-        return app;
+    public String getRecommend() {
+        return recommend;
     }
 
-    public void setApp(Integer app) {
-        this.app = app;
+    public void setRecommend(String recommend) {
+        this.recommend = recommend;
     }
 }

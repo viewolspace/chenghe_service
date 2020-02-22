@@ -2,7 +2,11 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="AdStat">
     <sql id="selectCommon">
-		select ad_id,stat_date,browse_num,copy_num,join_num,c_time,browse_user_num,title,company_id
+        select a.ad_id, a.stat_date, a.browse_num, a.copy_num, a.join_num, a.c_time, a.browse_user_num, a.title, a.company_id
+	</sql>
+
+    <sql id="selectCommon1">
+        select a.ad_id, a.stat_date, a.browse_num, a.copy_num, a.join_num, a.c_time, a.browse_user_num, a.title, a.company_id, b.category_id
 	</sql>
 
     <select id="findByAdIdAndStatDate" parameterType="int" resultType="AdStat">
@@ -48,13 +52,17 @@
 	</sql>
 
     <sql id="sql_where">
-        FROM part_time.ad_stat a
+        FROM part_time.ad_stat a, part_time.ad b
         <where>
+            a.ad_id=b.id
             <if test="adId != null and adId != '' ">
                 AND a.ad_id = #{adId}
             </if>
             <if test="statDate != null and statDate != '' ">
                 AND a.stat_date = #{statDate}
+            </if>
+            <if test="categoryId != null and categoryId != ''">
+                AND b.category_id in (${categoryId})
             </if>
             <if test="companyId != null and companyId != '' ">
                 AND a.company_id in (${companyId})
@@ -71,7 +79,7 @@
         <include refid="sql_where"/>
     </select>
     <select id="findByParams" parameterType="java.util.HashMap" resultType="AdStat">
-        <include refid="selectCommon"/>
+        <include refid="selectCommon1"/>
         <include refid="sql_where"/>
         <include refid="sql_order"/>
     </select>

@@ -28,4 +28,6 @@ public interface ICompanyDAO {
 
     List<Company> queryAll();
 
+    List<Company> queryCompanyByApp(int appId);
+
 }

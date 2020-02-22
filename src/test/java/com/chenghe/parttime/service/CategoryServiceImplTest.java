@@ -46,7 +46,7 @@ public class CategoryServiceImplTest extends BaseTestClass {
 
     @Test
     public void listByParent() {
-        System.out.println(service.listByParent("0001"));
+        System.out.println(service.listByParent("0001", 1));
     }
 
     @Test

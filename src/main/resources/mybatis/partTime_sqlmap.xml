@@ -215,8 +215,8 @@
             <if test="title != null and title != '' ">
                 AND a.title LIKE concat(concat('%',#{title}),'%')
             </if>
-            <if test="recommend != null">
-                AND recommend = #{recommend}
+            <if test="recommend != null and recommend != '' ">
+                AND a.recommend in (${recommend})
             </if>
             <if test="companyId != null and companyId != '' ">
                 AND a.company_id in (${companyId})

@@ -263,3 +263,6 @@ CREATE TABLE `ad_stat` (
 
 alter table `part_time`.`company`
    add column `app_id` int(11) NULL after `star`
+
+ALTER TABLE `part_time`.`category`
+ADD COLUMN `app_id` int(11) NULL COMMENT 'APP唯一ID' AFTER `logo`;

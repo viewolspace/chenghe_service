@@ -37,23 +37,24 @@ public class CategoryDAOImpl extends BaseDAO<Category> implements ICategoryDAO {
     }
 
     @Override
-    public List<Category> listByParent(String parentId) {
-        Map<String,Object> map = new HashMap<>();
-        map.put("parentId",parentId);
-        return super.findBy("queryByParent",map);
+    public List<Category> listByParent(String parentId, int appId) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("parentId", parentId);
+        map.put("appId", appId);
+        return super.findBy("queryByParent", map);
     }
 
     @Override
     public List<Category> listAll(String parentId) {
-        Map<String,Object> map = new HashMap<>();
-        map.put("parentId",parentId);
-        return super.findBy("queryAll",map);
+        Map<String, Object> map = new HashMap<>();
+        map.put("parentId", parentId);
+        return super.findBy("queryAll", map);
     }
 
     @Override
     public List<Category> listCategorys(List<String> ids) {
-        Map<String,Object> map = new HashMap<>();
-        map.put("list",ids);
-        return super.findBy("listCategorys",map);
+        Map<String, Object> map = new HashMap<>();
+        map.put("list", ids);
+        return super.findBy("listCategorys", map);
     }
 }

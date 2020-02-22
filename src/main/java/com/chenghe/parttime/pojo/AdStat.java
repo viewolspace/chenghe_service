@@ -19,6 +19,8 @@ public class AdStat {
     private Date cTime;
     private String title;
     private int companyId;
+    private String categoryId;
+    private String categoryName;
 
     public Integer getAdId() {
         return AdId;
@@ -90,5 +92,21 @@ public class AdStat {
 
     public void setCompanyId(int companyId) {
         this.companyId = companyId;
+    }
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 }
