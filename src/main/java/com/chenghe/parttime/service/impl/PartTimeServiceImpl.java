@@ -102,6 +102,7 @@ public class PartTimeServiceImpl implements IPartTimeService {
     @Override
     public int copyPartTime(int userId, int partTimeId) {
         if(userId<=0){
+            partTimeStatService.updateCopyNum(partTimeId,1);
             return 0;
         }
 
@@ -118,6 +119,7 @@ public class PartTimeServiceImpl implements IPartTimeService {
     @Override
     public int joinPartTime(int userId, int partTimeId) {
         if(userId<=0){
+            partTimeStatService.updateJoinNum(partTimeId,1);
             return 0;
         }
 
