@@ -15,16 +15,49 @@ import java.util.Map;
  */
 public class YtxSmsServiceImpl implements ISmsService{
 
+    private int appId = 3;
+
+    public YtxSmsServiceImpl(){
+        super();
+    }
+    public YtxSmsServiceImpl(int appId){
+        super();
+        this.appId = appId;
+    }
+
     @Override
     public int sendRand(String phone, String rand) {
 
-
+        String account = "N2408229";
+        String password = "oE8rdKGhn";
+        String msg = "【彩虹兼职】您的短信验证码是"+rand+"。您的手机号正在使用随机密码登录服务。请勿告知他人";
+        if(appId==4){
+            account = "N6534274";
+            password = "7kwQ3bhgm";
+            msg =  "【暖阳兼职】您的短信验证码是"+rand+"。您的手机号正在使用随机密码登录服务。请勿告知他人";
+        }else if(appId==5){
+            account = "N6534274";
+            password = "7kwQ3bhgm";
+            msg =  "【松鼠兼职】您的短信验证码是"+rand+"。您的手机号正在使用随机密码登录服务。请勿告知他人";
+        }else if(appId==6){
+            account = "N9182057";
+            password = "q1Mhpo2Ks";
+            msg =  "【蜜桔兼职】您的短信验证码是"+rand+"。您的手机号正在使用随机密码登录服务。请勿告知他人";
+        }else if(appId==7){
+            account = "N9182057";
+            password = "q1Mhpo2Ks";
+            msg =  "【蜜桔兼职】您的短信验证码是"+rand+"。您的手机号正在使用随机密码登录服务。请勿告知他人";
+        }else if(appId==8){
+            account = "N9182057";
+            password = "q1Mhpo2Ks";
+            msg =  "【蜜桔兼职】您的短信验证码是"+rand+"。您的手机号正在使用随机密码登录服务。请勿告知他人";
+        }
         //短信下发
         String sendUrl = "http://smssh1.253.com/msg/send/json";
         Map map = new HashMap();
-        map.put("account","N2408229");//API账号
-        map.put("password","oE8rdKGhn");//API密码
-        map.put("msg","您的短信验证码是"+rand+"。您的手机号正在使用随机密码登录服务。请勿告知他人");//短信内容
+        map.put("account",account);//API账号
+        map.put("password",password);//API密码
+        map.put("msg",msg);//短信内容
         map.put("phone",phone);//手机号
         map.put("report","true");//是否需要状态报告
 //        map.put("extend",rand);//自定义扩展码
@@ -34,7 +67,7 @@ public class YtxSmsServiceImpl implements ISmsService{
     }
 
     public static void main(String[] args) {
-        YtxSmsServiceImpl sms = new YtxSmsServiceImpl();
+        YtxSmsServiceImpl sms = new YtxSmsServiceImpl(5);
         sms.sendRand("13810436365","1234");
 
     }

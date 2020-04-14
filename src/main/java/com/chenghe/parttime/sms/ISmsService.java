@@ -17,4 +17,5 @@ public interface ISmsService {
      * @return
      */
     int sendRand(String phone,String rand ,String sign , String skin);
+
 }
