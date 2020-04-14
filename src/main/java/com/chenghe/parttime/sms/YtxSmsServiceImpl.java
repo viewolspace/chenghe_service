@@ -35,11 +35,11 @@ public class YtxSmsServiceImpl implements ISmsService{
             account = "N6534274";
             password = "7kwQ3bhgm";
             msg =  "【暖阳兼职】您的短信验证码是"+rand+"。您的手机号正在使用随机密码登录服务。请勿告知他人";
-        }else if(appId==5){
+        }else if(appId==6){
             account = "N6534274";
             password = "7kwQ3bhgm";
             msg =  "【松鼠兼职】您的短信验证码是"+rand+"。您的手机号正在使用随机密码登录服务。请勿告知他人";
-        }else if(appId==6){
+        }else if(appId==5){
             account = "N9182057";
             password = "q1Mhpo2Ks";
             msg =  "【蜜桔兼职】您的短信验证码是"+rand+"。您的手机号正在使用随机密码登录服务。请勿告知他人";
