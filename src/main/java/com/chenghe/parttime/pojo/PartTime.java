@@ -18,6 +18,7 @@ public class PartTime {
     private Integer id;
     private Integer companyId;  //商户id
     private Integer recommend;  //1 推荐 0 正常
+    private String recommendName;//推荐名称，页面显示用
     private String categoryId;  //职位分类id
     private String categoryName;    //职位分类名称
     private Integer topNum;     //置顶顺序 数字越大越靠前
@@ -43,6 +44,14 @@ public class PartTime {
 
     private String pic;
     private Integer verify;
+
+    public String getRecommendName() {
+        return recommendName;
+    }
+
+    public void setRecommendName(String recommendName) {
+        this.recommendName = recommendName;
+    }
 
     public Integer getId() {
         return id;
@@ -259,4 +268,5 @@ public class PartTime {
     public void setExt(String ext) {
         this.ext = ext;
     }
+
 }
