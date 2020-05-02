@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SysUser">
+    <resultMap type="SysUser" id="SysUserResultMap">
+        <result property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="realName" column="real_name"/>
+        <result property="email" column="email"/>
+        <result property="pswd" column="pswd"/>
+        <result property="phone" column="phone"/>
+        <result property="lastLoginTime" column="last_login_time"/>
+        <result property="userStatus" column="user_status"/>
+        <result property="createTime" column="create_time"/>
+        <result property="companyId" column="company_id"/>
+        <result property="roleId" column="roleId"/>
+        <result property="roleName" column="roleName"/>
+        <result property="roleCode" column="roleCode"/>
+        <result property="expoId" column="expo_id"/>
+    </resultMap>
+
+    <select id="selectAll"  resultMap="SysUserResultMap">
+        select id,user_name,real_name,email,pswd,phone,create_time,last_login_time,user_status,company_id,expo_id
+        from chenghe_ms.sys_user
+    </select>
+
+</mapper>

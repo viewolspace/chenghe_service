@@ -26,7 +26,7 @@
         <typeAlias alias="Idfa" type="com.chenghe.parttime.pojo.Idfa"/>
         <typeAlias alias="AdClick" type="com.chenghe.parttime.pojo.AdClick"/>
         <typeAlias alias="AdStat" type="com.chenghe.parttime.pojo.AdStat"/>
-
+        <typeAlias alias="SysUser" type="com.chenghe.parttime.pojo.SysUser"/>
     </typeAliases>
 
     <plugins>
@@ -47,6 +47,7 @@
         <mapper resource="mybatis/idfa_sqlmap.xml"/>
         <mapper resource="mybatis/ad_click_sqlmap.xml"/>
         <mapper resource="mybatis/adStat_sqlmap.xml"/>
+        <mapper resource="mybatis/sysUser_sqlmap.xml"/>
     </mappers>
 
 </configuration>
