@@ -46,7 +46,7 @@ public class YtxSmsServiceImpl implements ISmsService{
         }else if(appId==7){
             account = "N9182057";
             password = "q1Mhpo2Ks";
-            msg =  "【蜜桔兼职】您的短信验证码是"+rand+"。您的手机号正在使用随机密码登录服务。请勿告知他人";
+            msg =  "【快乐兼职】您的短信验证码是"+rand+"。您的手机号正在使用随机密码登录服务。请勿告知他人";
         }else if(appId==8){
             account = "N9182057";
             password = "q1Mhpo2Ks";
@@ -67,7 +67,7 @@ public class YtxSmsServiceImpl implements ISmsService{
     }
 
     public static void main(String[] args) {
-        YtxSmsServiceImpl sms = new YtxSmsServiceImpl(5);
+        YtxSmsServiceImpl sms = new YtxSmsServiceImpl(7);
         sms.sendRand("13810436365","1234");
 
     }
