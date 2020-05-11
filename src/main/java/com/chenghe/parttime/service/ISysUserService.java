@@ -12,4 +12,7 @@ public interface ISysUserService {
     List<SysUser> selectAll();
 
     Map<Integer,Integer>  getMap();
+
+
+    String getRemark(String appId);
 }

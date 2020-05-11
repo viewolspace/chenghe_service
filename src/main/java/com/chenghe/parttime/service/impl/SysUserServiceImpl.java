@@ -1,5 +1,6 @@
 package com.chenghe.parttime.service.impl;
 
+import com.chenghe.parttime.dao.SysDictionaryDAO;
 import com.chenghe.parttime.dao.SysUserDAO;
 import com.chenghe.parttime.pojo.SysUser;
 import com.chenghe.parttime.service.ISysUserService;
@@ -18,6 +19,10 @@ public class SysUserServiceImpl implements ISysUserService {
 
     @Resource
     private SysUserDAO sysUserDAO;
+
+
+    @Resource
+    private SysDictionaryDAO sysDictionaryDAO;
 
 
     @Override
@@ -48,5 +53,10 @@ public class SysUserServiceImpl implements ISysUserService {
             }
         }
         return map;
+    }
+
+    @Override
+    public String getRemark(String appId) {
+        return sysDictionaryDAO.getRemark(appId);
     }
 }

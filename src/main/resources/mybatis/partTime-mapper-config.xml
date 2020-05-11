@@ -27,6 +27,7 @@
         <typeAlias alias="AdClick" type="com.chenghe.parttime.pojo.AdClick"/>
         <typeAlias alias="AdStat" type="com.chenghe.parttime.pojo.AdStat"/>
         <typeAlias alias="SysUser" type="com.chenghe.parttime.pojo.SysUser"/>
+        <typeAlias alias="SysUser" type="com.chenghe.parttime.pojo.SysDictionary"/>
     </typeAliases>
 
     <plugins>
@@ -48,6 +49,7 @@
         <mapper resource="mybatis/ad_click_sqlmap.xml"/>
         <mapper resource="mybatis/adStat_sqlmap.xml"/>
         <mapper resource="mybatis/sysUser_sqlmap.xml"/>
+        <mapper resource="mybatis/sys_dictionary_mapper.xml"/>
     </mappers>
 
 </configuration>
