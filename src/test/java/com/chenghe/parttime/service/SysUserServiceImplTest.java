@@ -22,4 +22,10 @@ public class SysUserServiceImplTest extends BaseTestClass {
     public void getMap() {
         System.out.println(service.getMap());
     }
+
+
+    @Test
+    public void getRemark() {
+        System.out.println(service.getRemark("1"));
+    }
 }

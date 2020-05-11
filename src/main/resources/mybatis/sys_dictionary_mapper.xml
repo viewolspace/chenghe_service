@@ -21,7 +21,7 @@
         <include refid="selectCommon"/>
 
         FROM
-        sys_dictionary a where value = #{value} and parent_id='00000001' limit 1
+		chenghe_ms.sys_dictionary a where value = #{value} and parent_id='00000001' limit 1
 
     </select>
 

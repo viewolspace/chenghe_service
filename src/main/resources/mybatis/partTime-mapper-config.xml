@@ -27,7 +27,7 @@
         <typeAlias alias="AdClick" type="com.chenghe.parttime.pojo.AdClick"/>
         <typeAlias alias="AdStat" type="com.chenghe.parttime.pojo.AdStat"/>
         <typeAlias alias="SysUser" type="com.chenghe.parttime.pojo.SysUser"/>
-        <typeAlias alias="SysUser" type="com.chenghe.parttime.pojo.SysDictionary"/>
+        <typeAlias alias="SysDictionary" type="com.chenghe.parttime.pojo.SysDictionary"/>
     </typeAliases>
 
     <plugins>
