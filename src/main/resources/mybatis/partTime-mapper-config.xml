@@ -28,6 +28,7 @@
         <typeAlias alias="AdStat" type="com.chenghe.parttime.pojo.AdStat"/>
         <typeAlias alias="SysUser" type="com.chenghe.parttime.pojo.SysUser"/>
         <typeAlias alias="SysDictionary" type="com.chenghe.parttime.pojo.SysDictionary"/>
+        <typeAlias alias="ChannelView" type="com.chenghe.parttime.pojo.ChannelView"/>
     </typeAliases>
 
     <plugins>
@@ -50,6 +51,7 @@
         <mapper resource="mybatis/adStat_sqlmap.xml"/>
         <mapper resource="mybatis/sysUser_sqlmap.xml"/>
         <mapper resource="mybatis/sys_dictionary_mapper.xml"/>
+        <mapper resource="mybatis/channel_view_sqlmap.xml"/>
     </mappers>
 
 </configuration>
