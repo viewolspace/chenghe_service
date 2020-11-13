@@ -55,6 +55,13 @@ public class PartTimeDAOImpl extends BaseDAO<PartTime> implements IPartTimeDAO {
     }
 
     @Override
+    public List<PartTime> queryByIds(List<Integer> ids) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("idlist",ids);
+        return super.findBy("queryByIds",map);
+    }
+
+    @Override
     public List<PartTime> listRecommend(int recommend, int pageIndex, int pageSize) {
         Map<String,Object> map = new HashMap<>();
         map.put("recommend",recommend);

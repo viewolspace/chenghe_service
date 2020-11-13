@@ -2,22 +2,49 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ChannelView">
     <sql id="selectCommon">
-        select app_ids, channel_nos, phone_nums
+        select id,app_id,channel,version,type
     </sql>
 
-    <select id="selectData"  resultType="ChannelView">
+    <insert id="insert" parameterType="ChannelView" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+
+        INSERT INTO part_time.channel_view
+        (
+        app_id,channel,version,type
+        )
+        VALUES
+        (
+        #{appId},#{channel},#{version},#{type}
+        )
+    </insert>
+
+    <select id="select"  resultType="ChannelView">
         <include refid="selectCommon"/>
-        from part_time.channel_view limit 1
+        from part_time.channel_view where id = #{id}
     </select>
 
     <update id="updateData" parameterType="ChannelView">
 
         UPDATE part_time.channel_view
             SET
-            app_ids = #{appIds},
-            channel_nos = #{channelNos},
-            phone_nums = #{phoneNums}
+            app_id = #{appId},
+            channel = #{channel},
+            version = #{version},
+            type=#{type}
+        where id = #{id}
     </update>
+
+    <delete id="delete">
+        DELETE FROM part_time.channel_view where id = #{id}
+    </delete>
+
+
+    <select id="list"  resultType="ChannelView">
+        <include refid="selectCommon"/>
+        from part_time.channel_view
+    </select>
 
 
 </mapper>

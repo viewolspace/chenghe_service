@@ -39,6 +39,15 @@
     </select>
 
 
+    <select id="queryByIds" resultType="PartTime">
+        <include refid="selectCommon"/>
+        from part_time.part_time a where id in
+        <foreach collection="idlist" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
+
     <update id="updateRecommned" parameterType="map">
         update part_time set recommend=#{recommend}
         where id = #{id}

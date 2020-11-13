@@ -4,42 +4,66 @@ package com.chenghe.parttime.pojo;
  * Created by lenovo on 2020/6/30.
  */
 public class ChannelView {
-    private String appIds;
 
-    private String channelNos;
+    private int id;
 
-    private String phoneNums;
+    private String appId;
 
-    public String getAppIds() {
-        return appIds;
+    private String version;
+
+    private String channel;
+
+    private int type;
+
+
+    public int getId() {
+        return id;
     }
 
-    public void setAppIds(String appIds) {
-        this.appIds = appIds;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getChannelNos() {
-        return channelNos;
+    public String getAppId() {
+        return appId;
     }
 
-    public void setChannelNos(String channelNos) {
-        this.channelNos = channelNos;
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
-    public String getPhoneNums() {
-        return phoneNums;
+    public String getVersion() {
+        return version;
     }
 
-    public void setPhoneNums(String phoneNums) {
-        this.phoneNums = phoneNums;
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getChannel() {
+        return channel;
+    }
+
+    public void setChannel(String channel) {
+        this.channel = channel;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     @Override
     public String toString() {
         return "ChannelView{" +
-                "appIds='" + appIds + '\'' +
-                ", channelNos='" + channelNos + '\'' +
-                ", phoneNums='" + phoneNums + '\'' +
+                "id=" + id +
+                ", appId='" + appId + '\'' +
+                ", version='" + version + '\'' +
+                ", channel='" + channel + '\'' +
+                ", type=" + type +
                 '}';
     }
 }

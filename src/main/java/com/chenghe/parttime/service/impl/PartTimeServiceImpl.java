@@ -137,4 +137,10 @@ public class PartTimeServiceImpl implements IPartTimeService {
     public List<PartTime> listMyjoin(int userId, int pageIndex, int pageSize) {
         return partTimeDAO.listMyjoin(userId, pageIndex, pageSize);
     }
+
+    @Override
+    public List<PartTime> queryByIds(Integer...ids) {
+        List<Integer> list = java.util.Arrays.asList(ids);
+        return partTimeDAO.queryByIds(list);
+    }
 }

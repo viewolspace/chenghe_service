@@ -266,3 +266,16 @@ alter table `part_time`.`company`
 
 ALTER TABLE `part_time`.`category`
 ADD COLUMN `app_id` int(11) NULL COMMENT 'APP唯一ID' AFTER `logo`;
+
+
+#2020-11-13
+DROP  TABLE channel_view;
+
+CREATE TABLE `channel_view` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `app_id` varchar(200) COLLATE utf8_bin NOT NULL,
+  `channel` varchar(200) COLLATE utf8_bin NOT NULL,
+  `version` varchar(200) COLLATE utf8_bin NOT NULL,
+  `type` int(11) COLLATE utf8_bin NOT NULL COMMENT '1 职位信息，兼职这个默认就行了',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

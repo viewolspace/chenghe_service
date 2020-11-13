@@ -93,4 +93,6 @@ public interface IPartTimeService {
     int joinPartTime(int userId,int partTimeId);
 
     List<PartTime> listMyjoin(int userId,int pageIndex,int pageSize);
+
+    List<PartTime> queryByIds(Integer...ids);
 }

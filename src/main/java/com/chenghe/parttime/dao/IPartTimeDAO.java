@@ -22,6 +22,8 @@ public interface IPartTimeDAO {
 
     PartTime getPartTime(int id);
 
+    List<PartTime> queryByIds(List<Integer> ids);
+
     PageHolder<PartTime> queryPartTime(PartTimeQuery query);
 
     int delete(int id);

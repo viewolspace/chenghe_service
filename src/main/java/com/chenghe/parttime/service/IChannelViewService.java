@@ -7,7 +7,13 @@ import com.chenghe.parttime.pojo.ChannelView;
  */
 public interface IChannelViewService {
 
-    ChannelView getChannelView();
+    int addChannelView(ChannelView channelView);
+
+    ChannelView getChannelView(int id);
 
     int updateChannelView(ChannelView channelView);
+
+    int delChannelView(int id);
+
+    boolean isView(String appId,String version, String channel);
 }
