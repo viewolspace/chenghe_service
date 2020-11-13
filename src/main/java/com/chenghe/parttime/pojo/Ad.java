@@ -25,6 +25,8 @@ public class Ad {
 
     private String categoryName;  //广告分类名称，管理后台显示用
 
+    private String viewUrl;
+
     public int getId() {
         return id;
     }
@@ -111,5 +113,13 @@ public class Ad {
 
     public void setCompanyId(int companyId) {
         this.companyId = companyId;
+    }
+
+    public String getViewUrl() {
+        return viewUrl;
+    }
+
+    public void setViewUrl(String viewUrl) {
+        this.viewUrl = viewUrl;
     }
 }

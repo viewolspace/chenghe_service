@@ -279,3 +279,8 @@ CREATE TABLE `channel_view` (
   `type` int(11) COLLATE utf8_bin NOT NULL COMMENT '1 职位信息，兼职这个默认就行了',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+alter table `part_time`.`ad`
+   add column `view_url` varchar(200) NULL COMMENT '审核跳转地址' after `company_id`,
+   change `title` `title` varchar(200) NULL
