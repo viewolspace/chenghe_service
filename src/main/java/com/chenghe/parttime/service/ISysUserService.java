@@ -1,5 +1,6 @@
 package com.chenghe.parttime.service;
 
+import com.chenghe.parttime.pojo.SysDictionary;
 import com.chenghe.parttime.pojo.SysUser;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface ISysUserService {
 
 
     String getRemark(String appId);
+
+    List<SysDictionary> selectMenu(int appId);
 }

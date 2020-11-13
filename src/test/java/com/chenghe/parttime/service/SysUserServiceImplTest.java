@@ -28,4 +28,9 @@ public class SysUserServiceImplTest extends BaseTestClass {
     public void getRemark() {
         System.out.println(service.getRemark("1"));
     }
+
+    @Test
+    public void selectMenu(){
+        System.out.println(service.selectMenu(1));
+    }
 }

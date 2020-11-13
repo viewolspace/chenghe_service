@@ -2,6 +2,7 @@ package com.chenghe.parttime.service.impl;
 
 import com.chenghe.parttime.dao.SysDictionaryDAO;
 import com.chenghe.parttime.dao.SysUserDAO;
+import com.chenghe.parttime.pojo.SysDictionary;
 import com.chenghe.parttime.pojo.SysUser;
 import com.chenghe.parttime.service.ISysUserService;
 import org.springframework.stereotype.Service;
@@ -58,5 +59,10 @@ public class SysUserServiceImpl implements ISysUserService {
     @Override
     public String getRemark(String appId) {
         return sysDictionaryDAO.getRemark(appId);
+    }
+
+    @Override
+    public List<SysDictionary> selectMenu(int appId) {
+        return sysDictionaryDAO.selectMenu(appId);
     }
 }

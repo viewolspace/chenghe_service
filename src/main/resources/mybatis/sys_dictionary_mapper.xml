@@ -26,4 +26,14 @@
     </select>
 
 
+	<select id="selectMenu"  resultType="SysDictionary">
+
+		<include refid="selectCommon"/>
+
+		FROM
+		chenghe_ms.sys_dictionary a where app_id = #{appId} and parent_id='00000002'
+
+	</select>
+
+
 </mapper>
